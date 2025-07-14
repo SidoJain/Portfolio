@@ -118,7 +118,7 @@ export const Skills = () => {
                     <motion.div variants={fadeInUp}>
                         <Card>
                             <CardHeader>
-                                <CardTitle className="text-blue-600">Devops</CardTitle>
+                                <CardTitle className="text-blue-600">DevOps</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
