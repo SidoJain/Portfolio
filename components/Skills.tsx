@@ -23,7 +23,7 @@ export const Skills = () => {
         ml: ["Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama"],
         blockchain: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Hardhat"],
         devops: ["Docker", "Kubernetes", "AWS", "Vercel", "Github Actions"],
-        tools: ["Figma", "Vite", "Postman", "Git", "GitHub", "JWT", "Socket.io"],
+        tools: ["Figma", "Vite", "Postman", "Git", "JWT", "Socket.io", "BCrypt"],
     }
 
     return (

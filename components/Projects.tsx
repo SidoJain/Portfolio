@@ -23,9 +23,9 @@ export const Projects = () => {
         {
             title: "Real Time Chat App",
             description: "A full-stack project that enables users to connect, communicate, and share messages instantly.",
-            tech: ["React", "Express", "MongoDB", "Socket.io", "JWT", "Tailwind", "Daisy UI"],
-            github: "https://github.com/SidoJain/Chat-App",
-            live: "https://quick-chat-c1s4.onrender.com/"
+            tech: ["Next.js", "MongoDB", "Socket.io", "JWT", "Tailwind", "Lucide", "BCrypt"],
+            github: "https://github.com/SidoJain/Vero-Chat",
+            live: "https://vero-chat.onrender.com/"
         },
         {
             title: "C-SQL",
