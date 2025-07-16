@@ -19,7 +19,7 @@ const staggerContainer = {
 export const Skills = () => {
     const skills = {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand"],
-        backend: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "Flask", "Auth"],
+        backend: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "Auth"],
         ml: ["Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama"],
         blockchain: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Hardhat"],
         devops: ["Docker", "Kubernetes", "AWS", "Vercel", "Github Actions"],
