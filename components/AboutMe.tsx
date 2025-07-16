@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Code, GraduationCap, Brain, Blocks } from "lucide-react"
+import { CodeXml, GraduationCap, Brain, Blocks } from "lucide-react"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 const fadeInUp = {
@@ -45,7 +45,7 @@ export const AboutMe = () => {
                     <motion.div variants={fadeInUp}>
                         <Card className="text-center h-full">
                             <CardHeader>
-                                <Code className="w-12 h-12 mx-auto text-purple-600 mb-4" />
+                                <CodeXml className="w-12 h-12 mx-auto text-purple-600 mb-4" />
                                 <CardTitle>Full Stack</CardTitle>
                             </CardHeader>
                             <CardContent>
