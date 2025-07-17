@@ -143,6 +143,8 @@ export default function Skills() {
                         </Card>
                     </motion.div>
 
+                    <div className="hidden lg:block" />
+
                     <motion.div variants={fadeInUp}>
                         <Card className="border-slate-200 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 group">
                             <CardHeader>
