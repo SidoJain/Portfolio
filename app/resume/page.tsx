@@ -39,7 +39,7 @@ export default function ResumePage() {
                 </div>
             </header>
 
-            <div className="text-sm text-slate-500 text-center">
+            <div className="text-sm text-slate-500 text-center mt-12">
                 Last updated: <span className="font-medium text-blue-600">{lastUpdated}</span>
             </div>
 

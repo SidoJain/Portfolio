@@ -16,7 +16,7 @@ A personal portfolio website to showcase my projects, skills, and experience. Bu
 ## 🚀 Tech Stack
 
 - **Framework:** Next.js
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS, Framer Motion
 - **Icons:** Lucide Icons
 - **Deployment:** Vercel
 
