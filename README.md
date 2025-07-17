@@ -1,6 +1,6 @@
 # 💼 Portfolio Website
 
-A personal portfolio website to showcase my projects, skills, and experience. Built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [ShadCN UI](https://ui.shadcn.com/).
+A personal portfolio website to showcase my projects, skills, and experience. Built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [Lucide Icons](https://lucide.dev/icons/).
 
 ## 🖥️ Live Demo
 
@@ -11,11 +11,12 @@ A personal portfolio website to showcase my projects, skills, and experience. Bu
 - Responsive and accessible design
 - Project showcase with GitHub links
 - Clean UI using modern component libraries
+- Resume viewing and downloading
 
 ## 🚀 Tech Stack
 
 - **Framework:** Next.js
-- **Styling:** Tailwind CSS, ShadCN UI
+- **Styling:** Tailwind CSS
 - **Icons:** Lucide Icons
 - **Deployment:** Vercel
 

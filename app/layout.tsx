@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
     title: 'Siddharth Jain\'s Portfolio',
-    description: 'Portfolio Website of Siddharth',
+    description: 'Portfolio Website',
     icons: {
         icon: "/favicon.ico"
     }

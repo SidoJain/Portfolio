@@ -1,36 +1,122 @@
-import { motion } from "framer-motion"
-import { ArrowDown, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
+"use client"
 
-export const HeroSection = () => {
+import { motion } from "framer-motion"
+import { ArrowDown, Mail, FileText } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+
+const AnimatedLogo = () => {
+    const [orbitStyles, setOrbitStyles] = useState(
+        Array(6).fill({ transformOrigin: "", transform: "" })
+    )
+
+    useEffect(() => {
+        const radius = 35
+        const newStyles = [0, 60, 120, 180, 240, 300].map((angle) => {
+            const rad = (angle * Math.PI) / 180
+            return {
+                transformOrigin: `${Math.cos(rad) * radius}px ${Math.sin(rad) * radius}px`,
+                transform: `translate(-50%, -50%) rotate(${angle}deg) translateX(${radius}px)`
+            }
+        })
+        setOrbitStyles(newStyles)
+    }, [])
+
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center px-4">
-            <div className="max-w-4xl mx-auto text-center">
+        <div className="relative w-40 h-40 mx-auto mb-8 mt-20 sm:mt-0">
+            {/* Outer rotating ring */}
+            <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute inset-0 border-2 border-blue-500/30 rounded-full"
+            />
+
+            {/* Inner rotating ring - opposite direction */}
+            <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute inset-4 border border-slate-400/40 rounded-full"
+            />
+
+            {/* Floating geometric shapes */}
+            <motion.div
+                animate={{ rotate: [0, 120, 240, 360], scale: [1, 1.1, 1, 1.1, 1] }}
+                transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="absolute inset-8 flex items-center justify-center"
+            >
+                <div className="relative">
+                    {/* Central hexagon */}
+                    <motion.div
+                        animate={{ rotate: [0, 60, 120, 180, 240, 300, 360] }}
+                        transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                        className="w-16 h-16 bg-gradient-to-br from-blue-600 to-slate-700 transform rotate-45 rounded-lg shadow-lg"
+                    />
+
+                    {/* Orbiting dots */}
+                    {orbitStyles.map((style, index) => (
+                        <motion.div
+                            key={index}
+                            animate={{ rotate: 360, scale: [1, 1.5, 1] }}
+                            transition={{
+                                rotate: { duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                                scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, delay: index * 0.3 }
+                            }}
+                            className="absolute w-3 h-3 bg-blue-400 rounded-full"
+                            style={style}
+                        />
+                    ))}
+                </div>
+            </motion.div>
+
+            {/* Pulsing glow effect */}
+            <motion.div
+                animate={{ opacity: [0.3, 0.8, 0.3], scale: [1, 1.05, 1] }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="absolute inset-0 bg-blue-500/10 rounded-full blur-xl"
+            />
+        </div>
+    )
+}
+
+const BackgroundPattern = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        </div>
+    </div>
+)
+
+export default function HeroSection() {
+    return (
+        <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+            <BackgroundPattern />
+
+            <div className="max-w-4xl mx-auto text-center relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-8"
+                    initial={{ opacity: 0, scale: 0.5, y: 50 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 1, type: "spring", bounce: 0.4 }}
                 >
-                    <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white text-4xl font-bold">
-                        SJ
-                    </div>
+                    <AnimatedLogo />
                 </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-5xl md:text-7xl font-bold text-slate-800 mb-6"
                 >
-                    Siddharth Jain
+                    <span className="bg-gradient-to-r from-slate-800 via-blue-700 to-slate-700 bg-clip-text text-transparent">
+                        Siddharth Jain
+                    </span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto"
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto"
                 >
                     Full Stack Developer • ML Enthusiast • Blockchain Explorer
                 </motion.p>
@@ -38,45 +124,70 @@ export const HeroSection = () => {
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="text-lg text-gray-500 mb-12"
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto"
                 >
-                    BTech Student passionate about building innovative solutions
+                    BTech Student passionate about building innovative solutions that shape the future
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    className="flex gap-4 justify-center mb-16"
+                    transition={{ duration: 0.8, delay: 0.9 }}
+                    className="flex gap-4 justify-center mb-16 flex-wrap"
                 >
-                    <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700">
+                    <Button
+                        asChild
+                        size="lg"
+                        className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
                         <a href="mailto:sidojain30705@gmail.com" target="_blank">
                             <Mail className="w-4 h-4 mr-2" />
                             Get In Touch
                         </a>
                     </Button>
-                    <Button asChild variant="outline" size="lg">
+                    <Button
+                        asChild
+                        variant="outline"
+                        size="lg"
+                        className="border-slate-300 text-slate-700 hover:bg-slate-50 transition-all duration-300 bg-transparent"
+                    >
                         <a href="https://github.com/SidoJain" target="_blank">
                             <img
                                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                 alt="GitHub"
-                                width="28"
-                                height="28"
+                                width="24"
+                                height="24"
                                 style={{ fill: '#181717' }}
                             />
                             GitHub
                         </a>
                     </Button>
+                    <Link href="/resume">
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="border-blue-300 text-blue-700 hover:bg-blue-50 transition-all duration-300 bg-transparent"
+                        >
+                            <FileText className="w-4 h-4 mr-2" />
+                            Resume
+                        </Button>
+                    </Link>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
-                    className="animate-bounce"
+                    transition={{ duration: 1, delay: 1.2 }}
+                    className="relative mb-8 sm:mb-0"
                 >
-                    <ArrowDown className="w-6 h-6 mx-auto text-gray-400" />
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                        className="text-slate-400"
+                    >
+                        <ArrowDown className="w-6 h-6 mx-auto" />
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

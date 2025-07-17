@@ -1,3 +1,5 @@
+"use client"
+
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -16,7 +18,7 @@ const staggerContainer = {
     },
 }
 
-export const Skills = () => {
+export default function Skills() {
     const skills = {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand"],
         backend: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "Auth"],
@@ -27,7 +29,7 @@ export const Skills = () => {
     }
 
     return (
-        <section id="skills" className="py-20 px-4 bg-white">
+        <section id="skills" className="py-20 px-4 bg-slate-50 pt-32">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 60 }}
@@ -36,8 +38,10 @@ export const Skills = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl font-bold text-gray-900 mb-6">Skills & Technologies</h2>
-                    <p className="text-lg text-gray-600">Technologies I use and continue to learn</p>
+                    <h2 className="text-4xl font-bold text-slate-800 mb-6">
+                        <span className="text-blue-600 font-mono text-xl">02. </span>Skills & Technologies
+                    </h2>
+                    <p className="text-lg text-slate-600">Technologies I work with and continuously learning</p>
                 </motion.div>
 
                 <motion.div
@@ -48,14 +52,20 @@ export const Skills = () => {
                     className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
                 >
                     <motion.div variants={fadeInUp}>
-                        <Card>
+                        <Card className="border-slate-200 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-purple-600">Frontend</CardTitle>
+                                <CardTitle className="text-blue-600 group-hover:scale-105 transition-transform duration-300">
+                                    Frontend
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {skills.frontend.map((skill) => (
-                                        <Badge key={skill} variant="secondary">
+                                        <Badge
+                                            key={skill}
+                                            variant="secondary"
+                                            className="bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 transition-colors duration-300"
+                                        >
                                             {skill}
                                         </Badge>
                                     ))}
@@ -65,14 +75,20 @@ export const Skills = () => {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card>
+                        <Card className="border-slate-200 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-green-600">Backend</CardTitle>
+                                <CardTitle className="text-emerald-600 group-hover:scale-105 transition-transform duration-300">
+                                    Backend
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {skills.backend.map((skill) => (
-                                        <Badge key={skill} variant="secondary">
+                                        <Badge
+                                            key={skill}
+                                            variant="secondary"
+                                            className="bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100 transition-colors duration-300"
+                                        >
                                             {skill}
                                         </Badge>
                                     ))}
@@ -82,14 +98,20 @@ export const Skills = () => {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card>
+                        <Card className="border-slate-200 hover:border-purple-300 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-pink-600">Machine Learning</CardTitle>
+                                <CardTitle className="text-purple-600 group-hover:scale-105 transition-transform duration-300">
+                                    Machine Learning
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {skills.ml.map((skill) => (
-                                        <Badge key={skill} variant="secondary">
+                                        <Badge
+                                            key={skill}
+                                            variant="secondary"
+                                            className="bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100 transition-colors duration-300"
+                                        >
                                             {skill}
                                         </Badge>
                                     ))}
@@ -99,14 +121,20 @@ export const Skills = () => {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card>
+                        <Card className="border-slate-200 hover:border-orange-300 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-orange-600">Blockchain</CardTitle>
+                                <CardTitle className="text-orange-600 group-hover:scale-105 transition-transform duration-300">
+                                    Blockchain
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {skills.blockchain.map((skill) => (
-                                        <Badge key={skill} variant="secondary">
+                                        <Badge
+                                            key={skill}
+                                            variant="secondary"
+                                            className="bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100 transition-colors duration-300"
+                                        >
                                             {skill}
                                         </Badge>
                                     ))}
@@ -116,14 +144,20 @@ export const Skills = () => {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card>
+                        <Card className="border-slate-200 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-blue-600">DevOps</CardTitle>
+                                <CardTitle className="text-pink-600 group-hover:scale-105 transition-transform duration-300">
+                                    DevOps
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {skills.devops.map((skill) => (
-                                        <Badge key={skill} variant="secondary">
+                                        <Badge
+                                            key={skill}
+                                            variant="secondary"
+                                            className="bg-pink-50 text-pink-700 border-pink-200 hover:bg-pink-100 transition-colors duration-300"
+                                        >
                                             {skill}
                                         </Badge>
                                     ))}
@@ -133,14 +167,20 @@ export const Skills = () => {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card>
+                        <Card className="border-slate-200 hover:border-yellow-300 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-yellow-600">Tools</CardTitle>
+                                <CardTitle className="text-yellow-600 group-hover:scale-105 transition-transform duration-300">
+                                    Tools
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-wrap gap-2">
                                     {skills.tools.map((skill) => (
-                                        <Badge key={skill} variant="secondary">
+                                        <Badge
+                                            key={skill}
+                                            variant="secondary"
+                                            className="bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100 transition-colors duration-300"
+                                        >
                                             {skill}
                                         </Badge>
                                     ))}

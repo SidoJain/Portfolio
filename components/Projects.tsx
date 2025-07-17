@@ -1,6 +1,8 @@
+"use client"
+
 import { motion } from "framer-motion"
-import { ExternalLink } from "lucide-react"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
+import { Github, ExternalLink } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
@@ -18,7 +20,7 @@ const staggerContainer = {
     },
 }
 
-export const Projects = () => {
+export default function Projects() {
     const projects = [
         {
             title: "Real Time Chat App",
@@ -43,7 +45,7 @@ export const Projects = () => {
     ]
 
     return (
-        <section id="projects" className="py-20 px-4">
+        <section id="projects" className="py-20 px-4 pt-32 bg-white">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 60 }}
@@ -52,8 +54,10 @@ export const Projects = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl font-bold text-gray-900 mb-6">Featured Projects</h2>
-                    <p className="text-lg text-gray-600">Some of the projects I've worked on</p>
+                    <h2 className="text-4xl font-bold text-slate-800 mb-6">
+                        <span className="text-blue-600 font-mono text-xl">03. </span>Projects
+                    </h2>
+                    <p className="text-lg text-slate-600">Some of the projects I've worked on</p>
                 </motion.div>
 
                 <motion.div
@@ -65,21 +69,28 @@ export const Projects = () => {
                 >
                     {projects.map((project, index) => (
                         <motion.div key={index} variants={fadeInUp}>
-                            <Card className="h-full hover:shadow-lg transition-shadow">
+                            <Card className="h-full border-slate-200 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
                                 <CardHeader>
-                                    <CardTitle>{project.title}</CardTitle>
-                                    <CardDescription>{project.description}</CardDescription>
+                                    <CardTitle className="text-slate-800 group-hover:text-blue-600 transition-colors">
+                                        {project.title}
+                                    </CardTitle>
+                                    <CardDescription className="text-slate-600">{project.description}</CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {project.tech.map((tech) => (
-                                            <Badge key={tech} variant="outline">
+                                            <Badge key={tech} variant="outline" className="border-slate-300 text-slate-600">
                                                 {tech}
                                             </Badge>
                                         ))}
                                     </div>
                                     <div className="flex gap-2">
-                                        <Button asChild variant="outline" size="sm">
+                                        <Button
+                                            asChild
+                                            variant="outline"
+                                            size="sm"
+                                            className="border-blue-300 text-blue-600 hover:bg-blue-50 bg-transparent"
+                                        >
                                             <a href={project.github} target="_blank">
                                                 <img
                                                     src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
@@ -91,14 +102,18 @@ export const Projects = () => {
                                                 Code
                                             </a>
                                         </Button>
-                                        {project.live && (
-                                            <Button asChild variant="outline" size="sm">
-                                                <a href={project.live} target="_blank" rel="noopener noreferrer">
-                                                    <ExternalLink className="w-4 h-4 mr-2" />
-                                                    Live
-                                                </a>
-                                            </Button>
-                                        )}
+
+                                        {project.live && (<Button
+                                            asChild
+                                            variant="outline"
+                                            size="sm"
+                                            className="border-emerald-300 text-emerald-600 hover:bg-emerald-50 bg-transparent"
+                                        >
+                                            <a href={project.live} target="_blank" rel="noopener noreferrer">
+                                                <ExternalLink className="w-4 h-4 mr-2" />
+                                                Live
+                                            </a>
+                                        </Button>)}
                                     </div>
                                 </CardContent>
                             </Card>
