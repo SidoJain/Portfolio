@@ -39,7 +39,7 @@ export default function Skills() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">
-                        <span className="text-blue-600 font-mono text-xl">02. </span>Skills & Technologies
+                        Skills & Technologies
                     </h2>
                     <p className="text-lg text-slate-600">Technologies I work with and continuously learning</p>
                 </motion.div>

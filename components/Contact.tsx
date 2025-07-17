@@ -88,7 +88,7 @@ export default function Contact() {
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl font-bold mb-6 text-white">
-                            <span className="text-blue-400 font-mono text-xl">04. </span>Contact
+                            Contact Me
                         </h2>
                         <p className="text-xl text-slate-300 mb-12">
                             I'm always open to discussing new opportunities and interesting projects
@@ -224,7 +224,7 @@ export default function Contact() {
                                                 name="user_email"
                                                 required
                                                 className="w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base"
-                                                placeholder="your.email@example.com"
+                                                placeholder="your.name@email.com"
                                             />
                                         </div>
 

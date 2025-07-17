@@ -55,7 +55,7 @@ export default function Projects() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">
-                        <span className="text-blue-600 font-mono text-xl">03. </span>Projects
+                        Featured Projects
                     </h2>
                     <p className="text-lg text-slate-600">Some of the projects I've worked on</p>
                 </motion.div>

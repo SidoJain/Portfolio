@@ -58,7 +58,7 @@ export default function Header() {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6 }}
-            className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60"
+            className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm"
         >
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
@@ -67,12 +67,12 @@ export default function Header() {
                         className="font-bold text-xl text-slate-800 cursor-pointer"
                         onClick={() => scrollToSection("#home")}
                     >
-                        {"SJ"}
+                        SJ
                     </motion.div>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex space-x-8">
-                        {navItems.map((item, index) =>
+                        {navItems.map((item) =>
                             item.href.startsWith("/") ? (
                                 <Link key={item.name} href={item.href}>
                                     <motion.button
@@ -80,7 +80,6 @@ export default function Header() {
                                         whileTap={{ scale: 0.95 }}
                                         className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
                                     >
-                                        <span className="text-blue-600 mr-1">0{index + 1}.</span>
                                         {item.name}
                                     </motion.button>
                                 </Link>
@@ -91,11 +90,10 @@ export default function Header() {
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => scrollToSection(item.href)}
                                     className={`px-3 py-2 text-sm font-medium transition-colors ${(clickedSection === item.href.substring(1) || activeSection === item.href.substring(1))
-                                            ? "text-blue-600 font-semibold"
-                                            : "text-slate-600 hover:text-blue-600"
+                                        ? "text-blue-600 font-semibold"
+                                        : "text-slate-600 hover:text-blue-600"
                                         }`}
                                 >
-                                    <span className="text-blue-600 mr-1">0{index + 1}.</span>
                                     {item.name}
                                 </motion.button>
                             ),

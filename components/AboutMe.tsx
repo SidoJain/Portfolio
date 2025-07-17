@@ -30,7 +30,7 @@ export default function AboutMe() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">
-                        <span className="text-blue-600 font-mono text-xl">01. </span>About Me
+                        About Me
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                         I'm a passionate BTech student with a deep interest in full-stack development, machine learning, and
