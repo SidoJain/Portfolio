@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowLeft, Download } from "lucide-react"
+import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
@@ -19,32 +19,52 @@ export default function ResumePage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
             {/* Header */}
-            <header className="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
-                <div className="max-w-6xl mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <Link href="/">
-                            <Button variant="ghost" className="text-slate-600 hover:text-blue-600">
-                                <ArrowLeft className="w-4 h-4 mr-2" />
-                                Back to Portfolio
-                            </Button>
-                        </Link>
+            <motion.header
+                initial={{ y: -100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm"
+            >
+                <div className="max-w-6xl mx-auto px-4">
+                    <div className="flex items-center justify-between h-16">
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            className="font-bold text-xl text-slate-800 cursor-pointer"
+                        >
+                            <Link href={"/"}>
+                                <span className="text-blue-600" title="Siddharth Jain">
+                                    <svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <text x="0" y="24" font-family="Fira Code, monospace" font-size="24" fill="#1E3A8A">&lt;</text>
+                                        <text x="16" y="24" font-family="Fira Code, monospace" font-size="24" fill="#2563EB">S</text>
+                                        <text x="32" y="24" font-family="Fira Code, monospace" font-size="24" fill="#2563EB">J</text>
+                                        <text x="48" y="24" font-family="Fira Code, monospace" font-size="24" fill="#1E3A8A">/&gt;</text>
+                                    </svg>
+                                </span>
+                            </Link>
+                        </motion.div>
 
-                        <div className="flex items-center gap-4">
-                            <Button onClick={handleDownload} className="bg-blue-600 hover:bg-blue-700">
-                                <Download className="w-4 h-4 mr-2" />
-                                Download PDF
-                            </Button>
-                        </div>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+                        >
+                            <div className="flex items-center gap-4">
+                                <Button onClick={handleDownload} className="bg-blue-600 hover:bg-blue-700">
+                                    <Download className="w-4 h-4 mr-2" />
+                                    Download PDF
+                                </Button>
+                            </div>
+                        </motion.button>
                     </div>
                 </div>
-            </header>
+            </motion.header>
 
-            <div className="text-sm text-slate-500 text-center mt-12">
+            <div className="text-sm text-slate-500 text-center mt-16 py-4">
                 Last updated: <span className="font-medium text-blue-600">{lastUpdated}</span>
             </div>
 
             {/* PDF Viewer */}
-            <div className="max-w-6xl mx-auto px-4 py-8">
+            <div className="max-w-6xl mx-auto p-4">
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                     <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xl">
                         <div className="overflow-x-auto w-full">

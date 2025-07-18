@@ -67,7 +67,14 @@ export default function Header() {
                         className="font-bold text-xl text-slate-800 cursor-pointer"
                         onClick={() => scrollToSection("#home")}
                     >
-                        SJ
+                        <span className="text-blue-600" title="Siddharth Jain">
+                            <svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <text x="0" y="24" font-family="Fira Code, monospace" font-size="24" fill="#1E3A8A">&lt;</text>
+                                <text x="16" y="24" font-family="Fira Code, monospace" font-size="24" fill="#2563EB">S</text>
+                                <text x="32" y="24" font-family="Fira Code, monospace" font-size="24" fill="#2563EB">J</text>
+                                <text x="48" y="24" font-family="Fira Code, monospace" font-size="24" fill="#1E3A8A">/&gt;</text>
+                            </svg>
+                        </span>
                     </motion.div>
 
                     {/* Desktop Navigation */}
