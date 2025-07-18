@@ -150,16 +150,20 @@ export default function Contact() {
                                         asChild
                                         variant="outline"
                                         size="lg"
-                                        className="border-slate-400 text-slate-300 hover:bg-slate-700 bg-transparent w-full sm:w-auto"
+                                        className="border-slate-400 text-slate-300 hover:bg-slate-700 hover:text-[#e5e7eb] bg-transparent w-full sm:w-auto"
                                     >
-                                        <a href="https://www.linkedin.com/in/sido-jain/" target="_blank">
-                                            <img
-                                                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg"
-                                                alt="LinkedIn"
+                                        <a href="https://www.linkedin.com/in/sido-jain/" target="_blank" className="flex items-center gap-2">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                role="img"
+                                                viewBox="0 0 24 24"
                                                 width="20"
                                                 height="20"
-                                                style={{ fill: '#0A66C2' }}
-                                            />
+                                                fill="#0A66C2"
+                                            >
+                                                <title>LinkedIn</title>
+                                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.851-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.354V9h3.414v1.561h.049c.476-.9 1.637-1.851 3.37-1.851 3.602 0 4.269 2.37 4.269 5.451v6.291zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" />
+                                            </svg>
                                             LinkedIn
                                         </a>
                                     </Button>
@@ -167,7 +171,7 @@ export default function Contact() {
                                         asChild
                                         variant="outline"
                                         size="lg"
-                                        className="border-slate-400 text-slate-300 hover:bg-slate-700 bg-transparent w-full sm:w-auto"
+                                        className="border-slate-400 text-slate-300 hover:bg-slate-700 hover:text-[#e5e7eb] bg-transparent w-full sm:w-auto"
                                     >
                                         <a href="https://github.com/SidoJain" target="_blank">
                                             <img

@@ -152,7 +152,7 @@ export default function HeroSection() {
                         asChild
                         variant="outline"
                         size="lg"
-                        className="border-slate-300 text-slate-700 hover:bg-slate-50 transition-all duration-300 bg-transparent"
+                        className="border-slate-300 text-slate-700 bg-slate-200 hover:bg-slate-100 transition-all duration-300 shadow-sm"
                     >
                         <a href="https://github.com/SidoJain" target="_blank">
                             <img
@@ -169,7 +169,7 @@ export default function HeroSection() {
                         <Button
                             variant="outline"
                             size="lg"
-                            className="border-blue-300 text-blue-700 hover:bg-blue-50 transition-all duration-300 bg-transparent"
+                            className="text-blue-700 bg-blue-100 hover:bg-slate-100 transition-all duration-300 shadow-sm"
                         >
                             <FileText className="w-4 h-4 mr-2" />
                             Resume
