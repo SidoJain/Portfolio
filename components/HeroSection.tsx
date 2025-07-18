@@ -91,7 +91,8 @@ export default function HeroSection() {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
             <BackgroundPattern />
-            <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] animate-blob-move -z-10" />
+            <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] animate-blob-move -z-10" style={{ animationDelay: '0s', animationDuration: '20s' }} />
+            <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-blue-900 rounded-full blur-[120px] animate-blob-move -z-10" style={{ animationDelay: '5s', animationDuration: '10s' }} />
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
                 <motion.div
