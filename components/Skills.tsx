@@ -22,7 +22,7 @@ export default function Skills() {
     const skills = {
         frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand"],
         backend: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "Auth"],
-        ml: ["Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama"],
+        ml: ["Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama", "Jupyter"],
         blockchain: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Hardhat"],
         devops: ["Docker", "Kubernetes", "AWS", "Vercel", "Github Actions"],
         tools: ["Figma", "Vite", "Postman", "Git", "JWT", "Socket.io", "BCrypt"],
@@ -41,7 +41,7 @@ export default function Skills() {
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">
                         Skills & Technologies
                     </h2>
-                    <p className="text-lg text-slate-600">Technologies I work with and continuously learning</p>
+                    <p className="text-lg text-slate-600">Technologies I work with and continue to learn</p>
                 </motion.div>
 
                 <motion.div
@@ -169,9 +169,9 @@ export default function Skills() {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card className="border-slate-200 hover:border-yellow-300 hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-300 group">
+                        <Card className="border-slate-200 hover:border-cyan-300 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 group">
                             <CardHeader>
-                                <CardTitle className="text-yellow-600 group-hover:scale-105 transition-transform duration-300">
+                                <CardTitle className="text-cyan-600 group-hover:scale-105 transition-transform duration-300">
                                     Tools
                                 </CardTitle>
                             </CardHeader>
@@ -181,7 +181,7 @@ export default function Skills() {
                                         <Badge
                                             key={skill}
                                             variant="secondary"
-                                            className="bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100 transition-colors duration-300"
+                                            className="bg-cyan-50 text-cyan-700 border-cyan-200 hover:bg-cyan-100 transition-colors duration-300"
                                         >
                                             {skill}
                                         </Badge>

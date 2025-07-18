@@ -57,7 +57,7 @@ export default function Projects() {
                     <h2 className="text-4xl font-bold text-slate-800 mb-6">
                         Featured Projects
                     </h2>
-                    <p className="text-lg text-slate-600">Some of the projects I've worked on</p>
+                    <p className="text-lg text-slate-600">Here are a few projects where I applied these skills…</p>
                 </motion.div>
 
                 <motion.div

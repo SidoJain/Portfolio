@@ -91,6 +91,7 @@ export default function HeroSection() {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
             <BackgroundPattern />
+            <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] animate-blob-move -z-10" />
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
                 <motion.div
@@ -116,9 +117,9 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto"
+                    className="text-lg sm:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto"
                 >
-                    Full Stack Developer • ML Enthusiast • Blockchain Explorer
+                    Full Stack Developer • ML Enthusiast <span className="hidden sm:inline">•</span> <span className="block sm:inline">Blockchain Explorer</span>
                 </motion.p>
 
                 <motion.p

@@ -92,3 +92,34 @@ body {
 		@apply bg-background text-foreground;
 	}
 }
+
+@keyframes blob-move {
+	0% {
+		transform: translate(-30%, -30%) scale(1);
+	}
+	15% {
+		transform: translate(10%, -40%) scale(1.1);
+	}
+	30% {
+		transform: translate(20%, 20%) scale(1.25);
+	}
+	45% {
+		transform: translate(-50%, 30%) scale(0.95);
+	}
+	60% {
+		transform: translate(30%, -10%) scale(1.15);
+	}
+	75% {
+		transform: translate(-40%, -50%) scale(1.05);
+	}
+	90% {
+		transform: translate(0%, 40%) scale(1.2);
+	}
+	100% {
+		transform: translate(-30%, -30%) scale(1);
+	}
+}
+
+.animate-blob-move {
+	animation: blob-move 20s ease-in-out infinite;
+}
