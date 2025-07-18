@@ -59,7 +59,7 @@ export default function ResumePage() {
                 </div>
             </motion.header>
 
-            <div className="text-sm text-slate-500 text-center mt-16 py-4">
+            <div className="text-sm text-slate-500 text-center pt-20">
                 Last updated: <span className="font-medium text-blue-600">{lastUpdated}</span>
             </div>
 
