@@ -128,7 +128,6 @@ export default function Header() {
                                         onClick={() => setIsOpen(false)}
                                         className="block w-full text-left px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
                                     >
-                                        <span className="text-blue-600 mr-1">0{index + 1}.</span>
                                         {item.name}
                                     </button>
                                 </Link>
@@ -139,7 +138,6 @@ export default function Header() {
                                     className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors ${activeSection === item.href.substring(1) ? "text-blue-600" : "text-slate-600 hover:text-blue-600"
                                         }`}
                                 >
-                                    <span className="text-blue-600 mr-1">0{index + 1}.</span>
                                     {item.name}
                                 </button>
                             ),
