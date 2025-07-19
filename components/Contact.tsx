@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Mail, Send, User, MessageSquare, Copy, Check, BookOpenText } from "lucide-react"
 import { useState, useRef } from "react"
 import emailjs from "@emailjs/browser"
@@ -125,12 +125,31 @@ export default function Contact() {
                                             onClick={handleCopy}
                                             className="text-slate-400 hover:text-blue-500 transition-colors"
                                             aria-label="Copy email"
+                                            disabled={copied}
                                         >
-                                            {copied ? (
-                                                <Check className="w-4 h-4 text-green-400" />
-                                            ) : (
-                                                <Copy className="w-4 h-4" />
-                                            )}
+                                            <AnimatePresence mode="wait" initial={false}>
+                                                {copied ? (
+                                                    <motion.div
+                                                        key="check"
+                                                        initial={{ opacity: 0, scale: 0.8 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        exit={{ opacity: 0, scale: 0.8 }}
+                                                        transition={{ duration: 0.2 }}
+                                                    >
+                                                        <Check className="w-4 h-4 text-green-400" />
+                                                    </motion.div>
+                                                ) : (
+                                                    <motion.div
+                                                        key="copy"
+                                                        initial={{ opacity: 0, scale: 0.8 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        exit={{ opacity: 0, scale: 0.8 }}
+                                                        transition={{ duration: 0.2 }}
+                                                    >
+                                                        <Copy className="w-4 h-4" />
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
                                         </button>
                                     </div>
                                 </div>

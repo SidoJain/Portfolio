@@ -123,3 +123,17 @@ body {
 .animate-blob-move {
 	animation: blob-move 20s ease-in-out infinite;
 }
+
+@keyframes fly {
+	0%,
+	100% {
+		transform: translateX(0) translateY(0) rotate(-2deg);
+	}
+	50% {
+		transform: translateX(10px) translateY(-5px) rotate(2deg);
+	}
+}
+
+.animate-fly {
+	animation: fly 3s ease-in-out infinite;
+}

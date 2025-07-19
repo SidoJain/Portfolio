@@ -1,19 +1,22 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Download, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function ResumePage() {
     const lastUpdated = "July 9, 2025"
+    const [status, setStatus] = useState<"idle" | "done">("idle")
 
     const handleDownload = () => {
-        // Create a link to download the resume
         const link = document.createElement("a")
         link.href = "/resume.pdf"
         link.download = "Siddharth_Jain_Resume.pdf"
         link.click()
+
+        setStatus("done")
+        setTimeout(() => setStatus("idle"), 2500)
     }
 
     return (
@@ -34,25 +37,53 @@ export default function ResumePage() {
                             <Link href={"/"}>
                                 <span className="text-blue-600" title="Siddharth Jain">
                                     <svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <text x="0" y="24" font-family="Fira Code, monospace" font-size="24" fill="#1E3A8A">&lt;</text>
-                                        <text x="16" y="24" font-family="Fira Code, monospace" font-size="24" fill="#2563EB">S</text>
-                                        <text x="32" y="24" font-family="Fira Code, monospace" font-size="24" fill="#2563EB">J</text>
-                                        <text x="48" y="24" font-family="Fira Code, monospace" font-size="24" fill="#1E3A8A">/&gt;</text>
+                                        <text x="0" y="24" fontFamily="Fira Code, monospace" fontSize="24" fill="#1E3A8A">&lt;</text>
+                                        <text x="16" y="24" fontFamily="Fira Code, monospace" fontSize="24" fill="#2563EB">S</text>
+                                        <text x="32" y="24" fontFamily="Fira Code, monospace" fontSize="24" fill="#2563EB">J</text>
+                                        <text x="48" y="24" fontFamily="Fira Code, monospace" fontSize="24" fill="#1E3A8A">/&gt;</text>
                                     </svg>
                                 </span>
                             </Link>
                         </motion.div>
 
+                        {/* Animated Download Button */}
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+                            onClick={handleDownload}
+                            disabled={status === "done"}
                         >
-                            <div className="flex items-center gap-4">
-                                <Button onClick={handleDownload} className="bg-blue-600 hover:bg-blue-700">
-                                    <Download className="w-4 h-4 mr-2" />
-                                    Download PDF
-                                </Button>
+                            <div className="relative flex items-center justify-center w-[150px] h-10 rounded-md bg-blue-600 hover:bg-blue-700 text-white overflow-hidden">
+
+                                <AnimatePresence mode="wait" initial={false}>
+                                    {status === "idle" && (
+                                        <motion.div
+                                            key="idle"
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className="flex items-center gap-2"
+                                        >
+                                            <Download className="w-4 h-4" />
+                                            Download PDF
+                                        </motion.div>
+                                    )}
+
+                                    {status === "done" && (
+                                        <motion.div
+                                            key="done"
+                                            initial={{ opacity: 0, scale: 0.6 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.6 }}
+                                            transition={{ type: "spring", stiffness: 200 }}
+                                            className="flex items-center gap-2 text-green-300"
+                                        >
+                                            <Check className="w-4 h-4" />
+                                            Done!
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         </motion.button>
                     </div>
