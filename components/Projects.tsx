@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -91,13 +91,14 @@ export default function Projects() {
                                             size="sm"
                                             className="border-blue-300 text-blue-600 hover:bg-blue-50 bg-transparent"
                                         >
-                                            <a href={project.github} target="_blank">
+                                            <a href={project.github} target="_blank" rel="noopener noreferrer">
                                                 <img
                                                     src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                                     alt="GitHub"
                                                     width="20"
                                                     height="20"
                                                     style={{ fill: '#181717' }}
+                                                    loading="lazy"
                                                 />
                                                 Code
                                             </a>

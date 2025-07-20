@@ -143,7 +143,7 @@ export default function HeroSection() {
                         size="lg"
                         className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                     >
-                        <a href="mailto:sidojain30705@gmail.com" target="_blank">
+                        <a href="mailto:sidojain30705@gmail.com" target="_blank" rel="noopener noreferrer">
                             <Mail className="w-4 h-4 mr-2" />
                             Get In Touch
                         </a>
@@ -154,7 +154,7 @@ export default function HeroSection() {
                         size="lg"
                         className="border-slate-300 text-slate-700 bg-slate-200 hover:bg-slate-100 transition-all duration-300 shadow-sm"
                     >
-                        <a href="https://github.com/SidoJain" target="_blank">
+                        <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                 alt="GitHub"
