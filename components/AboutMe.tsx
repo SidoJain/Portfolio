@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CodeXml, Brain, Blocks, User, Lightbulb } from "lucide-react"
+import { CodeXml, Brain, Blocks, Lightbulb } from "lucide-react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
