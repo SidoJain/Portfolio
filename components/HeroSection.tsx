@@ -129,7 +129,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.8, delay: 0.7 }}
                     className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto"
                 >
-                    BTech Student passionate about building innovative solutions that shape the future
+                    Computer Science student passionate about building innovative solutions that shape the future
                 </motion.p>
 
                 <motion.div

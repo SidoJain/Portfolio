@@ -33,7 +33,7 @@ export default function AboutMe() {
                         About Me
                     </h2>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                        I'm a passionate BTech student with a deep interest in full-stack development, machine learning, and
+                        I'm a passionate Computer Science student with a deep interest in full-stack development, machine learning, and
                         blockchain technology. I love building innovative solutions that solve real-world problems and constantly
                         learning new technologies to stay at the forefront of the tech industry.
                     </p>
