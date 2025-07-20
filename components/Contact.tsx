@@ -3,8 +3,9 @@
 import type React from "react"
 
 import { motion, AnimatePresence } from "framer-motion"
+import Script from "next/script"
 import { Mail, Send, User, MessageSquare, Copy, Check, BookOpenText } from "lucide-react"
-import { useState, useRef, lazy } from "react"
+import { useState, useRef } from "react"
 import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -40,9 +41,17 @@ export default function Contact() {
             const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
             const token = await new Promise((resolve, reject) => {
                 window.grecaptcha.ready(() => {
-                    window.grecaptcha.execute(siteKey, { action: "submit" }).then(resolve).catch(reject)
+                    window.grecaptcha.execute(siteKey, { action: "submit" })
+                        .then(resolve)
+                        .catch(reject)
                 })
             })
+
+            if (!window.grecaptcha) {
+                alert("reCAPTCHA failed to load. Please try again.")
+                setIsSubmitting(false)
+                return
+            }
 
             // Add reCAPTCHA token to form data
             const formData = new FormData(form.current)
@@ -76,7 +85,10 @@ export default function Contact() {
     return (
         <>
             {/* Load reCAPTCHA script */}
-            <script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} async defer />
+            <Script
+                src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+                strategy="afterInteractive"
+            />
 
             <section id="contact" className="py-12 px-4 bg-slate-800 text-white pt-20 md:pt-32">
                 <div className="max-w-4xl mx-auto">

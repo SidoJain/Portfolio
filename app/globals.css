@@ -137,3 +137,7 @@ body {
 .animate-fly {
 	animation: fly 3s ease-in-out infinite;
 }
+
+.grecaptcha-badge {
+	visibility: hidden;
+}

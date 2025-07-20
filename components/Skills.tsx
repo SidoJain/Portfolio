@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion"
 import { CodeXml, Server, Brain, Blocks, Cloud, Wrench } from "lucide-react"
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useState } from "react"
 
 const colorMap: Record<string, any> = {
     blue: {
@@ -199,7 +199,7 @@ export default function Skills() {
                     viewport={{ once: true, amount: 0.3 }}
                     variants={{
                         initial: {},
-                        animate: { transition: { staggerChildren: 0.2 } },
+                        animate: { transition: { staggerChildren: 0.1 } },
                     }}
                     className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
@@ -279,7 +279,7 @@ export default function Skills() {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                     className="text-center mt-16"
                 >
