@@ -70,10 +70,7 @@ export default function Projects() {
     ]
 
     return (
-        <section
-            id="projects"
-            className="py-20 px-4 pt-32 bg-gradient-to-br from-slate-50 via-purple-50/20 to-slate-100 relative overflow-hidden"
-        >
+        <section id="projects" className="py-20 px-4 pt-32 bg-gradient-to-br from-slate-50 via-purple-50/20 to-slate-100 relative overflow-hidden">
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(139,69,19,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(139,69,19,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
             </div>
@@ -179,13 +176,7 @@ export default function Projects() {
                                 className="group"
                             >
                                 <motion.div className="perspective-1000">
-                                    <Card
-                                        className={`h-full aspect-square transition-all duration-500 cursor-pointer relative overflow-hidden
-                                            border-slate-200 ${isHovered ? colorClasses.border : ""}
-                                            hover:${colorClasses.shadow}
-                                            ${isHovered ? colorClasses.bg : "bg-white"}
-                                            transform-gpu flex flex-col`}
-                                    >
+                                    <Card className={`h-full aspect-square transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 ${isHovered ? colorClasses.border : ""} hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"} transform-gpu flex flex-col`}>
                                         <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                                         <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
