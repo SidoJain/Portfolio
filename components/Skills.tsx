@@ -228,7 +228,7 @@ export default function Skills() {
                                 onHoverEnd={() => setHoveredCard(null)}
                                 className="group"
                             >
-                                <Card className={`relative overflow-hidden h-full cursor-pointer transition-all duration-500 border-slate-200 ${color.borderHover} ${color.shadow} ${isHovered ? color.bg : "bg-white"}`}>
+                                <Card className={`relative overflow-hidden h-full cursor-pointer transition-all duration-500 ${color.border} ${color.borderHover} ${color.shadow} ${isHovered ? color.bg : "bg-white"}`}>
                                     <div className={`absolute inset-0 bg-gradient-to-br ${skillCategory.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                                     <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${skillCategory.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
 

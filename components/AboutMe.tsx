@@ -47,7 +47,7 @@ export default function AboutMe() {
                     className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
                 >
                     <motion.div variants={fadeInUp}>
-                        <Card className="text-center h-full border-slate-200 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
+                        <Card className="text-center h-full border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
                             <CardHeader>
                                 <CodeXml className="w-12 h-12 mx-auto text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300" />
                                 <CardTitle className="text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
@@ -61,7 +61,7 @@ export default function AboutMe() {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card className="text-center h-full border-slate-200 hover:border-purple-300 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 group">
+                        <Card className="text-center h-full border-purple-300 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300 group">
                             <CardHeader>
                                 <Brain className="w-12 h-12 mx-auto text-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300" />
                                 <CardTitle className="text-slate-800 group-hover:text-purple-600 transition-colors duration-300">
@@ -75,7 +75,7 @@ export default function AboutMe() {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card className="text-center h-full border-slate-200 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 group">
+                        <Card className="text-center h-full border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 group">
                             <CardHeader>
                                 <Blocks className="w-12 h-12 mx-auto text-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300" />
                                 <CardTitle className="text-slate-800 group-hover:text-pink-600 transition-colors duration-300">
@@ -89,7 +89,7 @@ export default function AboutMe() {
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Card className="text-center h-full border-slate-200 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 group">
+                        <Card className="text-center h-full border-emerald-300 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 group">
                             <CardHeader>
                                 <GraduationCap className="w-12 h-12 mx-auto text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300" />
                                 <CardTitle className="text-slate-800 group-hover:text-emerald-600 transition-colors duration-300">
