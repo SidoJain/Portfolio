@@ -27,13 +27,13 @@ const colorMap: Record<string, any> = {
         badgeBorder: "border-purple-200",
     },
     emerald: {
-        bg: "bg-emerald-50",
+        border: "border-emerald-400",
+        shadow: "hover:shadow-emerald-500/25",
         text: "text-emerald-600",
-        border: "border-emerald-200",
-        hover: "hover:bg-emerald-100",
-        borderHover: "hover:border-emerald-400",
-        shadow: "hover:shadow-emerald-500/20",
-        ring: "ring-emerald-300",
+        bg: "bg-emerald-50/50",
+        badgeBg: "bg-emerald-50",
+        badgeText: "text-emerald-700",
+        badgeBorder: "border-emerald-200",
     },
 }
 
@@ -131,7 +131,7 @@ export default function Projects() {
                         initial: {},
                         animate: {
                             transition: {
-                                staggerChildren: 0.2,
+                                staggerChildren: 0.1,
                             },
                         },
                     }}
@@ -152,10 +152,10 @@ export default function Projects() {
                                         scale: 1,
                                         rotateX: 0,
                                         transition: {
-                                            duration: 0.7,
+                                            duration: 0.6,
                                             type: "spring",
                                             stiffness: 80,
-                                            damping: 20,
+                                            damping: 15,
                                         },
                                     },
                                 }}
@@ -167,7 +167,7 @@ export default function Projects() {
                                     transition: {
                                         type: "spring",
                                         stiffness: 300,
-                                        damping: 20,
+                                        damping: 15,
                                         duration: 0.4,
                                     },
                                 }}
@@ -253,7 +253,7 @@ export default function Projects() {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                     className="text-center mt-16"
                 >
