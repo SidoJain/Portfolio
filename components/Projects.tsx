@@ -176,7 +176,7 @@ export default function Projects() {
                                 className="group"
                             >
                                 <motion.div className="perspective-1000">
-                                    <Card className={`h-full aspect-square transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 ${isHovered ? colorClasses.border : ""} hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"} transform-gpu flex flex-col`}>
+                                    <Card className={`h-full aspect-square transition-all duration-500 cursor-default relative overflow-hidden border-slate-200 ${isHovered ? colorClasses.border : ""} hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"} transform-gpu flex flex-col`}>
                                         <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                                         <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -196,7 +196,7 @@ export default function Projects() {
                                                     <motion.div key={tech} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
                                                         <Badge
                                                             variant="secondary"
-                                                            className={`${colorClasses.badgeBg} ${colorClasses.badgeText} ${colorClasses.badgeBorder} border hover:shadow-sm transition-all duration-300 cursor-pointer font-medium text-xs`}
+                                                            className={`${colorClasses.badgeBg} ${colorClasses.badgeText} ${colorClasses.badgeBorder} border hover:shadow-sm transition-all duration-300 font-medium text-xs`}
                                                         >
                                                             {tech}
                                                         </Badge>
