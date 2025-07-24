@@ -41,7 +41,7 @@ npm run dev
 If you'd like to collaborate, have feedback, or just want to say hi, feel free to reach out:
 
 - 📧 Email: `sidojain30705@gmail.com`
-- 🌐 Website: `https://sido-jain-portfolio.vercel.app/`
+- 🌐 Website: `https://sidojain.vercel.app/`
 - 💼 LinkedIn: `https://www.linkedin.com/in/sido-jain/`
 
 ## 📄 License
