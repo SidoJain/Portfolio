@@ -6,7 +6,7 @@ import { Download, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function ResumePage() {
-    const lastUpdated = "July 9, 2025"
+    const lastUpdated = "July 26, 2025"
     const [status, setStatus] = useState<"idle" | "done">("idle")
 
     const handleDownload = () => {
@@ -94,15 +94,19 @@ export default function ResumePage() {
                 Last updated: <span className="font-medium text-blue-600">{lastUpdated}</span>
             </div>
 
+            <div className="block md:hidden text-center text-red-600 p-4">
+                Best seen on landscape view on mobile screens
+            </div>
+
             {/* PDF Viewer */}
             <div className="max-w-6xl mx-auto p-4">
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                    <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-2xl">
-                        <div className="overflow-x-auto w-full">
-                            <div className="min-w-[320px] max-w-full md:max-w-[100%] mx-auto scale-[0.85] origin-top-left sm:scale-100">
+                    <div className="bg-white rounded-lg border h-[60vh] md:h-[80vh] border-slate-200 overflow-hidden shadow-2xl">
+                        <div className="overflow-x-auto h-full w-full">
+                            <div className="min-w-[320px] max-w-full h-full md:max-w-[100%] mx-auto scale-[0.35] sm:scale-[0.666] origin-top-left md:scale-100">
                                 <iframe
                                     src="/resume.html"
-                                    className="w-[120%] md:w-full h-[1000px] rounded-lg shadow-xl border border-slate-200"
+                                    className="w-[calc(100%/0.35)] sm:w-[150%] md:w-full md:h-full h-[calc(100%/0.35)] sm:h-[150%] rounded-lg shadow-xl border border-slate-200"
                                     title="Resume"
                                     style={{ border: "none" }}
                                 />
