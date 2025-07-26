@@ -42,7 +42,7 @@ export default function Projects() {
 
     const projects = [
         {
-            title: "Real Time Chat App",
+            title: "Vero Chat",
             description: "A full-stack project that enables users to connect, communicate, and share messages instantly.",
             tech: ["Next.js", "MongoDB", "Socket.io", "JWT", "Tailwind", "Lucide", "BCrypt"],
             github: "https://github.com/SidoJain/Vero-Chat",
@@ -53,7 +53,7 @@ export default function Projects() {
         {
             title: "C-SQL",
             description: "An SQL like database implementation in C using B-Trees for indexing.",
-            tech: ["C", "Low Level Systems Programming", "REPL", "B-Tree", "File I/O"],
+            tech: ["C", "Low Level Systems Programming", "REPL", "B-Tree", "File I/O", "Data Structures"],
             github: "https://github.com/SidoJain/C-SQL",
             color: "purple",
             gradient: "from-purple-500 to-violet-500",
@@ -176,16 +176,16 @@ export default function Projects() {
                                 className="group"
                             >
                                 <motion.div className="perspective-1000">
-                                    <Card className={`h-full aspect-square transition-all duration-500 cursor-default relative overflow-hidden border-slate-200 ${isHovered ? colorClasses.border : ""} hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"} transform-gpu flex flex-col`}>
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                                    <Card className={`h-full aspect-square transition-all duration-500 cursor-default relative overflow-hidden sm:border-slate-200 ${colorClasses.border} sm:${isHovered ? colorClasses.border : ""} ${colorClasses.shadow} sm:hover:${colorClasses.shadow} ${colorClasses.bg} sm:bg-white sm:${isHovered ? colorClasses.bg : "bg-white"} transform-gpu flex flex-col`}>
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5 sm:opacity-0 sm:group-hover:opacity-5 transition-opacity duration-500`} />
 
-                                        <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                                        <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500`} />
 
                                         <CardHeader className="relative z-10">
-                                            <CardTitle className={`text-slate-800 group-hover:${colorClasses.text} transition-all duration-300 text-xl group-hover:scale-125 mb-2`}>
+                                            <CardTitle className={`${colorClasses.text} sm:text-slate-800 sm:group-hover:${colorClasses.text} transition-all duration-300 text-xl group-hover:scale-125 mb-2`}>
                                                 {project.title}
                                             </CardTitle>
-                                            <CardDescription className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300 leading-relaxed">
+                                            <CardDescription className="text-slate-700 sm:text-slate-600 sm:group-hover:text-slate-700 transition-colors duration-300 leading-relaxed">
                                                 {project.description}
                                             </CardDescription>
                                         </CardHeader>
@@ -209,7 +209,7 @@ export default function Projects() {
                                                     asChild
                                                     variant="outline"
                                                     size="sm"
-                                                    className="border-slate-300 text-slate-600 bg-transparent group-hover:bg-white hover:bg-slate-50 group-hover:text-black group-hover:border-slate-600 transition-all duration-300 flex-1"
+                                                    className="sm:border-slate-300 border-slate-600 sm:text-slate-600 sm:bg-transparent sm:group-hover:bg-white bg-white sm:hover:bg-slate-50 text-black sm:group-hover:text-black sm:group-hover:border-slate-600 transition-all duration-300 flex-1"
                                                 >
                                                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                                                         <img
@@ -227,7 +227,7 @@ export default function Projects() {
                                                         asChild
                                                         variant="outline"
                                                         size="sm"
-                                                        className="border-emerald-300 text-emerald-600 hover:bg-emerald-50 bg-transparent group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 flex-1"
+                                                        className="sm:border-emerald-300 sm:text-emerald-600 sm:hover:bg-emerald-50 sm:bg-transparent bg-emerald-600 sm:group-hover:bg-emerald-600 text-white sm:group-hover:text-white border-emerald-600 sm:group-hover:border-emerald-600 transition-all duration-300 flex-1"
                                                     >
                                                         <a href={project.live} target="_blank" rel="noopener noreferrer">
                                                             <ExternalLink className="w-4 h-4 mr-2" />
@@ -239,7 +239,7 @@ export default function Projects() {
                                         </CardContent>
 
                                         <motion.div
-                                            className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-lg blur opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
+                                            className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-lg blur opacity-20 sm:opacity-0 sm:group-hover:opacity-20 transition-opacity duration-500 -z-10`}
                                             animate={isHovered ? { scale: [1, 1.02, 1] } : {}}
                                             transition={{ duration: 2, repeat: Infinity }}
                                         />

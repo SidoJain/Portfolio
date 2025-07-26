@@ -10,55 +10,55 @@ const colorMap: Record<string, any> = {
     blue: {
         bg: "bg-blue-50",
         text: "text-blue-600",
+        hover: "bg-blue-100",
         border: "border-blue-200",
-        hover: "hover:bg-blue-100",
-        borderHover: "hover:border-blue-400",
-        shadow: "hover:shadow-blue-500/20",
+        borderHover: "border-blue-400",
+        shadow: "shadow-blue-500/20",
         ring: "ring-blue-300",
     },
     emerald: {
         bg: "bg-emerald-50",
         text: "text-emerald-600",
+        hover: "bg-emerald-100",
         border: "border-emerald-200",
-        hover: "hover:bg-emerald-100",
-        borderHover: "hover:border-emerald-400",
-        shadow: "hover:shadow-emerald-500/20",
+        borderHover: "border-emerald-400",
+        shadow: "shadow-emerald-500/20",
         ring: "ring-emerald-300",
     },
     purple: {
         bg: "bg-purple-50",
         text: "text-purple-600",
+        hover: "bg-purple-100",
         border: "border-purple-200",
-        hover: "hover:bg-purple-100",
-        borderHover: "hover:border-purple-400",
-        shadow: "hover:shadow-purple-500/20",
+        borderHover: "border-purple-400",
+        shadow: "shadow-purple-500/20",
         ring: "ring-purple-300",
     },
     orange: {
         bg: "bg-orange-50",
         text: "text-orange-600",
+        hover: "bg-orange-100",
         border: "border-orange-200",
-        hover: "hover:bg-orange-100",
-        borderHover: "hover:border-orange-400",
-        shadow: "hover:shadow-orange-500/20",
+        borderHover: "border-orange-400",
+        shadow: "shadow-orange-500/20",
         ring: "ring-orange-300",
     },
     pink: {
         bg: "bg-pink-50",
         text: "text-pink-600",
+        hover: "bg-pink-100",
         border: "border-pink-200",
-        hover: "hover:bg-pink-100",
-        borderHover: "hover:border-pink-400",
-        shadow: "hover:shadow-pink-500/20",
+        borderHover: "border-pink-400",
+        shadow: "shadow-pink-500/20",
         ring: "ring-pink-300",
     },
     cyan: {
         bg: "bg-cyan-50",
         text: "text-cyan-600",
+        hover: "bg-cyan-100",
         border: "border-cyan-200",
-        hover: "hover:bg-cyan-100",
-        borderHover: "hover:border-cyan-400",
-        shadow: "hover:shadow-cyan-500/20",
+        borderHover: "border-cyan-400",
+        shadow: "shadow-cyan-500/20",
         ring: "ring-cyan-300",
     },
 }
@@ -106,7 +106,7 @@ export default function Skills() {
             title: "Machine Learning",
             icon: Brain,
             color: "purple",
-            skills: ["Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama", "Jupyter"],
+            skills: ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama", "Jupyter"],
             gradient: "from-purple-500 to-pink-500",
         },
         blockchain: {
@@ -127,7 +127,7 @@ export default function Skills() {
             title: "Tools",
             icon: Wrench,
             color: "cyan",
-            skills: ["Figma", "Vite", "Postman", "Git", "JWT", "Socket.io", "BCrypt"],
+            skills: ["Figma", "Vite", "Postman", "Git", "JWT", "Socket.io", "BCrypt", "ESLint", "Prettier"],
             gradient: "from-cyan-500 to-blue-500",
         },
     }
@@ -228,16 +228,16 @@ export default function Skills() {
                                 onHoverEnd={() => setHoveredCard(null)}
                                 className="group"
                             >
-                                <Card className={`relative overflow-hidden h-full cursor-pointer transition-all duration-500 ${color.border} ${color.borderHover} ${color.shadow} ${isHovered ? color.bg : "bg-white"}`}>
+                                <Card className={`relative overflow-hidden h-full cursor-pointer transition-all duration-500 ${color.borderHover} sm:${color.border} sm:hover:${color.borderHover} ${color.shadow} ${color.bg} sm:${isHovered ? color.bg : "bg-white"}`}>
                                     <div className={`absolute inset-0 bg-gradient-to-br ${skillCategory.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                                    <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${skillCategory.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
+                                    <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${skillCategory.gradient} opacity-20 sm:opacity-0 sm:group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
 
                                     <CardHeader className="relative z-10">
                                         <div className="flex items-center gap-3 mb-2">
                                             <motion.div
                                                 whileHover={{ rotate: 360, scale: 1.1 }}
                                                 transition={{ duration: 0.6, type: "spring" }}
-                                                className={`p-2 rounded-xl border ${color.border} ${color.bg} group-hover:shadow-lg transition-all duration-300`}
+                                                className={`p-2 rounded-xl border ${color.border} ${color.bg} shadow-lg sm:shadow-none sm:group-hover:shadow-lg transition-all duration-300`}
                                             >
                                                 <Icon className={`w-5 h-5 ${color.text}`} />
                                             </motion.div>
@@ -257,7 +257,7 @@ export default function Skills() {
                                                     animate="animate"
                                                     whileHover="hover"
                                                 >
-                                                    <Badge className={`font-medium ${color.border} ${color.text} ${color.bg} ${color.hover} transition-all duration-300 cursor-pointer`}>
+                                                    <Badge className={`font-medium ${color.border} ${color.text} ${color.bg} hover:${color.hover} transition-all duration-300 cursor-pointer`}>
                                                         {skill}
                                                     </Badge>
                                                 </motion.div>

@@ -164,11 +164,11 @@ export default function AboutMe() {
                                 onHoverEnd={() => setHoveredCard(null)}
                                 className="group"
                             >
-                                <Card className={`h-full transition-all duration-700 cursor-pointer relative overflow-hidden ${color.border} ${isHovered ? color.hoverBorder : color.border} ${isHovered ? `shadow-xl ${color.shadow}` : "shadow-md"} ${isHovered ? color.bg : "bg-white"} hover:shadow-2xl`}>
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-700`} />
+                                <Card className={`h-full transition-all duration-700 cursor-pointer relative overflow-hidden ${color.hoverBorder} sm:${isHovered ? color.hoverBorder : color.border} shadow-xl ${color.shadow} sm:${isHovered ? `shadow-xl sm:${color.shadow}` : "shadow-md"} ${color.bg} sm:${isHovered ? color.bg : "bg-white"} hover:shadow-2xl`}>
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-10 sm:opacity-0 sm:group-hover:opacity-10 transition-opacity duration-700`} />
 
                                     <motion.div
-                                        className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${card.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                                        className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${card.gradient} sm:opacity-0 opacity-20 sm:group-hover:opacity-20 transition-opacity duration-500`}
                                         style={{ clipPath: "polygon(100% 0%, 0% 0%, 100% 100%)" }}
                                     />
 
@@ -182,7 +182,7 @@ export default function AboutMe() {
                                                 <Icon className={`w-7 h-7 ${color.text}`} />
                                             </motion.div>
                                             <div className="flex-1">
-                                                <CardTitle className={`text-slate-800 group-hover:${color.text} transition-all duration-500 text-xl group-hover:translate-x-1`}>
+                                                <CardTitle className={`sm:text-slate-800 ${color.text} sm:group-hover:${color.text} transition-all duration-500 text-xl group-hover:translate-x-1`}>
                                                     {card.title}
                                                 </CardTitle>
                                             </div>
@@ -191,7 +191,7 @@ export default function AboutMe() {
 
                                     <CardContent className="relative z-10 pt-0">
                                         <motion.p
-                                            className={`text-slate-600 group-hover:text-slate-800 transition-all duration-500 text-base leading-relaxed group-hover:font-medium`}
+                                            className={`sm:text-slate-600 text-slate-800 font-medium sm:group-hover:text-slate-800 transition-all duration-500 text-base leading-relaxed sm:group-hover:font-medium`}
                                             whileHover={{ x: 5 }}
                                             transition={{ type: "spring", stiffness: 300 }}
                                         >
@@ -200,7 +200,7 @@ export default function AboutMe() {
                                     </CardContent>
 
                                     <motion.div
-                                        className={`absolute inset-0 bg-gradient-to-r ${card.gradient} rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-xl`}
+                                        className={`absolute inset-0 bg-gradient-to-r ${card.gradient} rounded-lg opacity-10 sm:opacity-0 sm:group-hover:opacity-10 transition-opacity duration-700 blur-xl`}
                                         animate={
                                             isHovered
                                                 ? { scale: [1, 1.02, 1], opacity: [0, 0.1, 0] }
