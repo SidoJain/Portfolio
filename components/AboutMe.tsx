@@ -164,7 +164,7 @@ export default function AboutMe() {
                                 onHoverEnd={() => setHoveredCard(null)}
                                 className="group"
                             >
-                                <Card className={`h-full transition-all duration-700 cursor-pointer relative overflow-hidden ${color.hoverBorder} sm:${isHovered ? color.hoverBorder : color.border} shadow-xl ${color.shadow} sm:${isHovered ? `shadow-xl sm:${color.shadow}` : "shadow-md"} ${color.bg} sm:${isHovered ? color.bg : "bg-white"} hover:shadow-2xl`}>
+                                <Card className={`h-full transition-all duration-700 cursor-pointer relative overflow-hidden ${color.hoverBorder} sm:${isHovered ? color.hoverBorder : color.border} shadow-xl sm:${isHovered ? `shadow-xl` : "shadow-md"} ${color.bg} sm:${isHovered ? color.bg : "bg-white"} hover:shadow-2xl`}>
                                     <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-10 sm:opacity-0 sm:group-hover:opacity-10 transition-opacity duration-700`} />
 
                                     <motion.div

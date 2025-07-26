@@ -182,7 +182,7 @@ export default function Projects() {
                                         <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500`} />
 
                                         <CardHeader className="relative z-10">
-                                            <CardTitle className={`${colorClasses.text} sm:text-slate-800 sm:group-hover:${colorClasses.text} transition-all duration-300 text-xl group-hover:scale-125 mb-2`}>
+                                            <CardTitle className={`text-slate-800 sm:group-hover:${colorClasses.text} transition-all duration-300 text-xl sm:group-hover:scale-125 mb-2`}>
                                                 {project.title}
                                             </CardTitle>
                                             <CardDescription className="text-slate-700 sm:text-slate-600 sm:group-hover:text-slate-700 transition-colors duration-300 leading-relaxed">
