@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowDown, Mail, FileText } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowDown, Mail, FileText, MapPin } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
 
 const AnimatedLogo = () => {
     const [orbitStyles, setOrbitStyles] = useState(
@@ -113,6 +113,18 @@ export default function HeroSection() {
                         Siddharth Jain
                     </span>
                 </motion.h1>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="text-md sm:text-xl text-slate-600 mb-8 max-w-2xl mx-auto"
+                >
+                    <span className="flex justify-center gap-2 items-center">
+                        <MapPin />
+                        New Delhi, India
+                    </span>
+                </motion.p>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
