@@ -42,7 +42,7 @@ export default function Projects() {
 
     const projects = [
         {
-            title: "Real Time Chat App",
+            title: "Vero Chat",
             description: "A full-stack project that enables users to connect, communicate, and share messages instantly.",
             tech: ["Next.js", "MongoDB", "Socket.io", "JWT", "Tailwind", "Lucide", "BCrypt"],
             github: "https://github.com/SidoJain/Vero-Chat",
@@ -53,7 +53,7 @@ export default function Projects() {
         {
             title: "C-SQL",
             description: "An SQL like database implementation in C using B-Trees for indexing.",
-            tech: ["C", "Low Level Systems Programming", "REPL", "B-Tree", "File I/O"],
+            tech: ["C", "Low Level Systems Programming", "REPL", "B-Tree", "File I/O", "Data Structures"],
             github: "https://github.com/SidoJain/C-SQL",
             color: "purple",
             gradient: "from-purple-500 to-violet-500",
