@@ -185,7 +185,7 @@ export default function Projects() {
                                             <CardTitle className={`text-slate-800 group-hover:${colorClasses.text} transition-all duration-300 text-xl group-hover:scale-125 mb-2`}>
                                                 {project.title}
                                             </CardTitle>
-                                            <CardDescription className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300 leading-relaxed">
+                                            <CardDescription className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300 leading-relaxed text-justify">
                                                 {project.description}
                                             </CardDescription>
                                         </CardHeader>

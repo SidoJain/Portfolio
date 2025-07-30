@@ -117,7 +117,7 @@ export default function Contact() {
                             className="mb-8 lg:mb-0"
                         >
                             <h3 className="text-2xl font-semibold text-white mb-6">Get In Touch</h3>
-                            <p className="text-slate-300 mb-8 leading-relaxed">
+                            <p className="text-slate-300 mb-8 leading-relaxed text-justify">
                                 Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear
                                 from you. Let's create something amazing together!
                             </p>
