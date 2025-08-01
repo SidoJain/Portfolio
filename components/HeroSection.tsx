@@ -5,6 +5,7 @@ import { ArrowDown, Mail, FileText, MapPin } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const AnimatedLogo = () => {
     const [orbitStyles, setOrbitStyles] = useState(
@@ -167,7 +168,7 @@ export default function HeroSection() {
                         className="border-slate-300 text-slate-700 bg-slate-200 hover:bg-slate-100 transition-all duration-300 shadow-sm"
                     >
                         <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
-                            <img
+                            <Image
                                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                 alt="GitHub"
                                 width="24"

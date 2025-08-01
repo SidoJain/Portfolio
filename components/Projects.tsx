@@ -6,8 +6,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import Image from "next/image"
 
-const colorMap: Record<string, any> = {
+type ColorProps = {
+    border: string;
+    shadow: string;
+    text: string;
+    bg: string;
+    badgeBg: string;
+    badgeText: string;
+    badgeBorder: string;
+};
+
+const colorMap: Record<string, ColorProps> = {
     blue: {
         border: "border-blue-400",
         shadow: "shadow-blue-500/25",
@@ -212,7 +223,7 @@ export default function Projects() {
                                                     className="border-slate-300 text-slate-600 bg-transparent group-hover:bg-white hover:bg-slate-50 group-hover:text-black group-hover:border-slate-600 transition-all duration-300 flex-1"
                                                 >
                                                     <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                                        <img
+                                                        <Image
                                                             src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                                             alt="GitHub"
                                                             width="24"
@@ -269,7 +280,7 @@ export default function Projects() {
                                 rel="noopener noreferrer"
                                 className="text-purple-600 hover:text-purple-700 transition-colors underline flex items-center gap-1"
                             >
-                                <img
+                                <Image
                                     src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                     alt="GitHub"
                                     width="24"

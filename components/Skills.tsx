@@ -6,7 +6,17 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-const colorMap: Record<string, any> = {
+type ColorProps = {
+    bg: string;
+    text: string;
+    border: string;
+    hover: string;
+    borderHover: string;
+    shadow: string;
+    ring: string;
+};
+
+const colorMap: Record<string, ColorProps> = {
     blue: {
         bg: "bg-blue-50",
         text: "text-blue-600",

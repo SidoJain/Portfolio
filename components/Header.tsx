@@ -121,7 +121,7 @@ export default function Header() {
                         exit={{ opacity: 0, y: -20 }}
                         className="md:hidden py-4 border-t border-slate-200/60"
                     >
-                        {navItems.map((item, index) =>
+                        {navItems.map((item) =>
                             item.href.startsWith("/") ? (
                                 <Link key={item.name} href={item.href}>
                                     <button

@@ -118,7 +118,7 @@ export default function AboutMe() {
                         viewport={{ once: true }}
                         className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
                     >
-                        I'm a passionate Computer Science student who believes in the power of technology to transform ideas into reality.
+                        I&apos;m a passionate Computer Science student who believes in the power of technology to transform ideas into reality.
                         My journey spans across multiple domains, always driven by curiosity and the desire to create meaningful impact.
                     </motion.p>
                 </motion.div>

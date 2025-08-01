@@ -9,10 +9,14 @@ import { useState, useRef } from "react"
 import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import Image from "next/image"
 
 declare global {
     interface Window {
-        grecaptcha: any
+        grecaptcha: {
+            ready: (callback: () => void) => void;
+            execute: (siteKey: string, options: { action: string }) => Promise<string>;
+        }
     }
 }
 
@@ -103,7 +107,7 @@ export default function Contact() {
                             Contact Me
                         </h2>
                         <p className="text-xl text-slate-300 mb-12">
-                            I'm always open to discussing new opportunities and interesting projects
+                            I&apos;m always open to discussing new opportunities and interesting projects
                         </p>
                     </motion.div>
 
@@ -118,8 +122,8 @@ export default function Contact() {
                         >
                             <h3 className="text-2xl font-semibold text-white mb-6">Get In Touch</h3>
                             <p className="text-slate-300 mb-8 leading-relaxed text-justify">
-                                Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear
-                                from you. Let's create something amazing together!
+                                Whether you have a project in mind, want to collaborate, or just want to say hello, I&apos;d love to hear
+                                from you. Let&apos;s create something amazing together!
                             </p>
 
                             <div className="space-y-4">
@@ -205,7 +209,7 @@ export default function Contact() {
                                         className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
                                     >
                                         <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
-                                            <img
+                                            <Image
                                                 src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
                                                 alt="GitHub"
                                                 width="20"
@@ -330,7 +334,7 @@ export default function Contact() {
                                         {/* Status Messages */}
                                         {submitStatus === "success" && (
                                             <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                                                <p className="text-green-400 text-sm">Message sent successfully! I'll get back to you soon.</p>
+                                                <p className="text-green-400 text-sm">Message sent successfully! I&apos;ll get back to you soon.</p>
                                             </div>
                                         )}
 
