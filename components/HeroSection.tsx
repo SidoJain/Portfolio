@@ -174,6 +174,7 @@ export default function HeroSection() {
                                 width="24"
                                 height="24"
                                 style={{ fill: '#181717' }}
+                                loading="lazy"
                             />
                             GitHub
                         </a>

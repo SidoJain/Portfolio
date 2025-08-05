@@ -229,6 +229,7 @@ export default function Projects() {
                                                             width="24"
                                                             height="24"
                                                             style={{ fill: '#181717' }}
+                                                            loading="lazy"
                                                         />
                                                         Code
                                                     </a>
@@ -286,6 +287,7 @@ export default function Projects() {
                                     width="24"
                                     height="24"
                                     style={{ fill: '#181717' }}
+                                    loading="lazy"
                                 />
                                 GitHub
                             </a>
