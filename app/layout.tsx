@@ -4,11 +4,15 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css'
 
 export const metadata: Metadata = {
-    title: 'Siddharth Jain\'s Portfolio',
-    description: 'Full-stack developer and ML enthusiast portfolio',
+    title: 'Siddharth Jain | Developer',
+    description: 'Full-stack developer, Blockchain explorer, ML enthusiast and Lifelong Learner.',
     icons: {
         icon: "/favicon.ico"
-    }
+    },
+    alternates: {
+        canonical: "https://sidojain.vercel.app/",
+    },
+    robots: "index,follow"
 }
 
 export default function RootLayout({
