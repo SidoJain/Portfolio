@@ -4,7 +4,7 @@ A personal portfolio website to showcase my projects, skills, and experience. Bu
 
 ## 🖥️ Live Demo
 
-👉 [View Live](https://sido-jain-portfolio.vercel.app/)
+👉 [View Live](https://sidojain.vercel.app/)
 
 ## ✨ Features
 
