@@ -62,10 +62,10 @@ export default function Projects() {
             gradient: "from-blue-500 to-cyan-500",
         },
         {
-            title: "C-SQL",
-            description: "An SQL like database implementation in C using B-Trees for indexing.",
-            tech: ["C", "Low Level Systems Programming", "REPL", "B-Tree", "File I/O", "Data Structures"],
-            github: "https://github.com/SidoJain/C-SQL",
+            title: "Cypher",
+            description: "A terminal-based text editor implemented in C featuring advanced functionalities.",
+            tech: ["C", "Low Level Systems Programming", "Terminal", "Linux", "WSL2", "macOS", "File I/O", "Data Structures"],
+            github: "https://github.com/SidoJain/Cypher",
             color: "purple",
             gradient: "from-purple-500 to-violet-500",
         },
@@ -220,7 +220,7 @@ export default function Projects() {
                                                     asChild
                                                     variant="outline"
                                                     size="sm"
-                                                    className="border-slate-300 text-slate-600 bg-transparent group-hover:bg-white hover:bg-slate-50 group-hover:text-black group-hover:border-slate-600 transition-all duration-300 flex-1"
+                                                    className="border-slate-300 text-slate-600 bg-transparent group-hover:bg-white hover:scale-105 group-hover:text-black group-hover:border-slate-600 transition-all duration-300 flex-1"
                                                 >
                                                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                                                         <Image
@@ -239,7 +239,7 @@ export default function Projects() {
                                                         asChild
                                                         variant="outline"
                                                         size="sm"
-                                                        className="border-emerald-300 text-emerald-600 hover:bg-emerald-50 bg-transparent group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 flex-1"
+                                                        className="border-emerald-300 text-emerald-600 hover:scale-105 bg-transparent group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 flex-1"
                                                     >
                                                         <a href={project.live} target="_blank" rel="noopener noreferrer">
                                                             <ExternalLink className="w-4 h-4 mr-2" />
