@@ -102,14 +102,14 @@ export default function Skills() {
             title: "Frontend",
             icon: CodeXml,
             color: "blue",
-            skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand"],
+            skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "JWT", "Zustand"],
             gradient: "from-blue-500 to-cyan-500",
         },
         backend: {
             title: "Backend",
             icon: Server,
             color: "emerald",
-            skills: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "Auth"],
+            skills: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "BCrypt", "Socket.io", "Auth"],
             gradient: "from-emerald-500 to-teal-500",
         },
         ml: {
@@ -137,7 +137,7 @@ export default function Skills() {
             title: "Tools",
             icon: Wrench,
             color: "cyan",
-            skills: ["Figma", "Vite", "Postman", "Git", "JWT", "Socket.io", "BCrypt", "WSL2", "Linux"],
+            skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux"],
             gradient: "from-cyan-500 to-blue-500",
         },
     }
