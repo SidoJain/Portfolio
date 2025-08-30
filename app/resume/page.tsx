@@ -9,11 +9,17 @@ export default function ResumePage() {
     const lastUpdated = "August 29, 2025"
     const [status, setStatus] = useState<"idle" | "done">("idle")
 
-    const handleDownload = () => {
+    const handleDownload = async () => {
         const link = document.createElement("a")
         link.href = "/resume.pdf"
         link.download = "Siddharth_Jain_Resume.pdf"
         link.click()
+        
+        try {
+            await fetch("/api/increment-resume-download", { method: "POST" })
+        } catch {
+            console.error("Failed to increment download counter")
+        }
 
         setStatus("done")
         setTimeout(() => setStatus("idle"), 2500)

@@ -18,6 +18,7 @@ A personal portfolio website to showcase my projects, skills, and experience. Bu
 - **Framework:** Next.js
 - **Styling:** Tailwind CSS, Framer Motion
 - **Icons:** Lucide Icons
+- **Analytics:** Upstash Redis
 - **Deployment:** Vercel
 
 ## 🛠️ Setup Instructions
