@@ -83,17 +83,17 @@ export default function AboutMe() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <motion.div
                     animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                     className="absolute top-20 right-20 w-32 h-32 border border-blue-200/30 rounded-full"
                 />
                 <motion.div
                     animate={{ rotate: [360, 0], x: [0, 20, 0] }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                     className="absolute bottom-32 left-16 w-24 h-24 border border-purple-200/30 rounded-lg transform rotate-45"
                 />
                 <motion.div
                     animate={{ y: [0, -30, 0], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                     className="absolute top-1/2 left-8 w-16 h-16 bg-gradient-to-br from-emerald-200/40 to-blue-200/40 rounded-full"
                 />
             </div>
@@ -107,9 +107,7 @@ export default function AboutMe() {
                     className="text-center mb-16"
                 >
                     <div className="inline-flex items-center gap-3 mb-6">
-                        <h2 className="text-4xl font-bold text-slate-800">
-                            About Me
-                        </h2>
+                        <h2 className="text-4xl font-bold text-slate-800">About Me</h2>
                     </div>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -226,14 +224,10 @@ export default function AboutMe() {
                         className="inline-block bg-gradient-to-r from-slate-50 to-blue-50 px-10 py-6 rounded-2xl border border-slate-200/50 shadow-lg"
                     >
                         <div className="flex items-center justify-center gap-3 mb-3">
-                            <div className="text-2xl">
-                                🎓
-                            </div>
+                            <div className="text-2xl">🎓</div>
                             <p className="text-slate-800 text-xl font-bold">BTech in Computer Science & Engineering</p>
                         </div>
-                        <p className="text-slate-600 text-base">
-                            Class of 2027 • USICT, GGSIPU • Delhi, India
-                        </p>
+                        <p className="text-slate-600 text-base">Class of 2027 • USICT, GGSIPU • Delhi, India</p>
                     </motion.div>
                 </motion.div>
             </div>
