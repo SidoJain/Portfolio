@@ -248,7 +248,7 @@ export default function Contact() {
                                 <h3 className="text-2xl font-semibold text-white mb-6">Why start a conversation?</h3>
                                 <p className="text-slate-300 mb-8 leading-relaxed text-justify">
                                     Beyond just coding, I bring a fresh perspective to technical challenges.
-                                    I'm genuinely curious about your goals and committed to finding solutions that work for both
+                                    I&apos;m genuinely curious about your goals and committed to finding solutions that work for both
                                     your users and your business.
                                 </p>
                             </motion.div>
