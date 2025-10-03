@@ -11,8 +11,7 @@ export default function ResumePage() {
 
     const handleDownload = async () => {
         const link = document.createElement("a")
-        link.href = "/resume.pdf"
-        link.download = "Siddharth_Jain_Resume.pdf"
+        link.href = "/api/download-resume"
         link.click()
 
         try {
