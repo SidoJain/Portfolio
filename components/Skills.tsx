@@ -109,7 +109,7 @@ export default function Skills() {
             title: "Backend",
             icon: Server,
             color: "emerald",
-            skills: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "BCrypt", "Socket.io", "Auth"],
+            skills: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "BCrypt", "Socket.io", "Supabase", "Auth"],
             gradient: "from-emerald-500 to-teal-500",
         },
         ml: {
