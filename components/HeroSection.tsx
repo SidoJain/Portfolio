@@ -169,7 +169,7 @@ export default function HeroSection() {
                     >
                         <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
                             <Image
-                                src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                                src="icons/github.svg"
                                 alt="GitHub"
                                 width="24"
                                 height="24"

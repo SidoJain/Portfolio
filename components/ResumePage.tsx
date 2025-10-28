@@ -111,7 +111,7 @@ export default function ResumePage() {
                         <div className="overflow-x-auto h-full w-full">
                             <div className="min-w-[320px] max-w-full h-full md:max-w-[100%] mx-auto scale-[0.35] sm:scale-[0.666] origin-top-left md:scale-100">
                                 <iframe
-                                    src="/resume.html"
+                                    src="resume/resume.html"
                                     className="w-[calc(100%/0.35)] sm:w-[150%] md:w-full md:h-full h-[calc(100%/0.35)] sm:h-[150%] rounded-lg shadow-xl border border-slate-200"
                                     title="Resume"
                                     style={{ border: "none" }}

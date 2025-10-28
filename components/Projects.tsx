@@ -274,7 +274,7 @@ export default function Projects() {
                                                 >
                                                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                                                         <Image
-                                                            src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
+                                                            src="icons/github.svg"
                                                             alt="GitHub"
                                                             width="24"
                                                             height="24"
@@ -332,8 +332,8 @@ export default function Projects() {
                                 className="text-purple-600 hover:text-purple-700 transition-colors underline flex items-center gap-1"
                             >
                                 <Image
-                                    src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg"
-                                    alt="GitHub"
+                                    src="icons/github.svg"
+                                    alt=""
                                     width="24"
                                     height="24"
                                     style={{ fill: "#181717" }}
