@@ -3,4 +3,4 @@
 *.jsx linguist-language=JavaScript
 *.js linguist-language=JavaScript
 
-/public/* linguist-vendored
+/public/resume/* linguist-vendored
