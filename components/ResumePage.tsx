@@ -115,6 +115,7 @@ export default function ResumePage() {
                                     className="w-[calc(100%/0.35)] sm:w-[150%] md:w-full md:h-full h-[calc(100%/0.35)] sm:h-[150%] rounded-lg shadow-xl border border-slate-200"
                                     title="Resume"
                                     style={{ border: "none" }}
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
