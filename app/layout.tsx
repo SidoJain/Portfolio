@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         icon: "/favicon.ico"
     },
     alternates: {
-        canonical: "https://sidojain.vercel.app/",
+        canonical: "https://sidojain.dev/",
     },
     robots: "index,follow"
 }
