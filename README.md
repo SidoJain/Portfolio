@@ -18,8 +18,8 @@ A personal portfolio website to showcase my projects, skills, and experience. Bu
 - **Framework:** Next.js
 - **Styling:** Tailwind CSS, Framer Motion
 - **Icons:** Lucide Icons
-- **Analytics:** Upstash Redis
 - **Deployment:** Vercel
+- **Analytics:** Vercel Analytics
 
 ## 🛠️ Setup Instructions
 
@@ -44,7 +44,3 @@ If you'd like to collaborate, have feedback, or just want to say hi, feel free t
 - 📧 Email: `sidojain30705@gmail.com`
 - 🌐 Website: `https://sidojain.vercel.app/`
 - 💼 LinkedIn: `https://www.linkedin.com/in/sido-jain/`
-
-## 📄 License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
