@@ -13,6 +13,7 @@ export default function Header() {
     const navItems = [
         { name: "About", href: "#about" },
         { name: "Skills", href: "#skills" },
+        { name: "Experience", href: "#experience" },
         { name: "Projects", href: "#projects" },
         { name: "Contact", href: "#contact" },
         { name: "Resume", href: "/resume" },
@@ -20,7 +21,7 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ["home", "about", "skills", "projects", "contact"]
+            const sections = ["home", "about", "skills", "experience", "projects", "contact"]
             const scrollPosition = window.scrollY + 100
 
             for (const section of sections) {
