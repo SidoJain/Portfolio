@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { CodeXml, Brain, Blocks, Lightbulb } from "lucide-react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CTA } from "@/components/cards/CTA"
 
 const colorMap = {
     blue: {
@@ -212,24 +213,7 @@ export default function AboutMe() {
                     })}
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="text-center mt-20"
-                >
-                    <motion.div
-                        whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)" }}
-                        className="inline-block bg-gradient-to-r from-slate-50 to-blue-50 px-10 py-6 rounded-2xl border border-slate-200/50 shadow-lg"
-                    >
-                        <div className="flex items-center justify-center gap-3 mb-3">
-                            <div className="text-2xl">🎓</div>
-                            <p className="text-slate-800 text-xl font-bold">BTech in Computer Science & Engineering</p>
-                        </div>
-                        <p className="text-slate-600 text-base">Class of 2027 • USICT, GGSIPU • Delhi, India</p>
-                    </motion.div>
-                </motion.div>
+                <CTA boldline="🎓 BTech in Computer Science & Engineering" subline="Class of 2027 • USICT, GGSIPU • Delhi, India" />
             </div>
         </section>
     )

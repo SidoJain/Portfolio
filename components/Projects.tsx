@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { CTA } from "@/components/cards/CTA"
 import { useState } from "react"
 import Image from "next/image"
 
@@ -312,38 +313,26 @@ export default function Projects() {
                     })}
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="text-center mt-16"
-                >
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        className="inline-block bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full border border-slate-200 shadow-lg"
-                    >
-                        <p className="text-slate-600 text-lg font-medium flex items-center justify-center gap-2">
-                            More projects on{" "}
-                            <a
-                                href="https://github.com/SidoJain"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-purple-600 hover:text-purple-700 transition-colors underline flex items-center gap-1"
-                            >
-                                <Image
-                                    src="icons/github.svg"
-                                    alt=""
-                                    width="24"
-                                    height="24"
-                                    style={{ fill: "#181717" }}
-                                    loading="lazy"
-                                />
-                                GitHub
-                            </a>
-                        </p>
-                    </motion.div>
-                </motion.div>
+                <CTA subline={
+                    <p className="text-slate-600 text-lg font-medium flex items-center justify-center gap-2">
+                        More projects on{" "}
+                        <a
+                            href="https://github.com/SidoJain"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-purple-600 hover:text-purple-700 transition-colors underline flex items-center gap-1"
+                        >
+                            <Image
+                                src="icons/github.svg"
+                                alt=""
+                                width="24"
+                                height="24"
+                                style={{ fill: "#181717" }}
+                                loading="lazy"
+                            />
+                            GitHub
+                        </a>
+                    </p>} />
             </div>
         </section>
     )

@@ -5,6 +5,7 @@ import { CodeXml, Server, Brain, Blocks, Cloud, Wrench } from "lucide-react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { CTA } from "@/components/cards/CTA"
 
 type ColorProps = {
     bg: string;
@@ -286,20 +287,7 @@ export default function Skills() {
                     })}
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="text-center mt-16"
-                >
-                    <motion.p
-                        whileHover={{ scale: 1.05 }}
-                        className="text-slate-600 text-lg font-medium bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full border border-slate-200 shadow-lg inline-block"
-                    >
-                        ✨ Always learning and exploring new technologies
-                    </motion.p>
-                </motion.div>
+                <CTA subline="✨ Always learning and exploring new technologies" />
             </div>
         </section>
     )

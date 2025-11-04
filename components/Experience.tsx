@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Calendar, MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { CTA } from "@/components/cards/CTA"
 import { useState } from "react"
 
 export default function Experience() {
@@ -241,20 +242,7 @@ export default function Experience() {
                     })}
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mt-16"
-                >
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        className="inline-block bg-gradient-to-r from-slate-50 to-blue-50 px-10 py-6 rounded-2xl border border-slate-200/50 shadow-lg"
-                    >
-                        <p className="text-slate-800 text-lg font-medium">Open to new opportunities and exciting projects</p>
-                    </motion.div>
-                </motion.div>
+                <CTA subline="Always open to new opportunities and exciting projects" />
             </div>
         </section>
     )
