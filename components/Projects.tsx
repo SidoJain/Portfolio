@@ -131,7 +131,7 @@ export default function Projects() {
     ]
 
     return (
-        <section id="projects" className="py-20 px-4 pt-32 bg-gradient-to-br from-slate-50 via-purple-50/20 to-slate-100 relative overflow-hidden">
+        <section id="projects"className="py-20 px-4 pt-32 bg-gradient-to-br from-slate-50 via-purple-50/20 to-slate-100 relative overflow-hidden">
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(139,69,19,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(139,69,19,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
             </div>
@@ -182,20 +182,7 @@ export default function Projects() {
                     </motion.p>
                 </motion.div>
 
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={{
-                        initial: {},
-                        animate: {
-                            transition: {
-                                staggerChildren: 0.1,
-                            },
-                        },
-                    }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr"
-                >
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
                     {projects.map((project, index) => (
                         <ProjectCard
                             key={index}
@@ -211,7 +198,7 @@ export default function Projects() {
                             onHoverEnd={() => setHoveredProject(null)}
                         />
                     ))}
-                </motion.div>
+                </div>
 
                 <CTA subline={
                     <p className="text-slate-600 text-lg font-medium flex items-center justify-center gap-2">

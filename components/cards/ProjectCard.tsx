@@ -39,21 +39,20 @@ export function ProjectCard({ title, description, tech, github, live, color, gra
 
     return (
         <motion.div
-            variants={{
-                initial: { opacity: 0, y: 60, scale: 0.9, rotateX: 10 },
-                animate: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    rotateX: 0,
-                    transition: {
-                        duration: 0.6,
-                        type: "spring",
-                        stiffness: 80,
-                        damping: 15,
-                    },
+            initial={{ opacity: 0, y: 60, scale: 0.9, rotateX: 10 }}
+            whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotateX: 0,
+                transition: {
+                    duration: 0.6,
+                    type: "spring",
+                    stiffness: 80,
+                    damping: 15,
                 },
             }}
+            viewport={{ once: true, margin: "-50px" }}
             whileHover={{
                 y: -12,
                 rotateX: 5,
@@ -88,12 +87,7 @@ export function ProjectCard({ title, description, tech, github, live, color, gra
                     <CardContent className="relative z-10 flex-1 flex flex-col justify-between">
                         <div className="flex flex-wrap gap-2 mb-6">
                             {tech.map((technology) => (
-                                <TechBadge
-                                    key={technology}
-                                    tech={technology}
-                                    colorClasses={techBadgeColors}
-                                    variant="secondary"
-                                />
+                                <TechBadge key={technology} tech={technology} colorClasses={techBadgeColors} variant="secondary" />
                             ))}
                         </div>
 
