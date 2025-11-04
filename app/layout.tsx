@@ -12,18 +12,14 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "https://www.sidojain.dev",
     },
-    authors: [{name: "Siddharth Jain", url: "https://www.sidojain.dev"}],
+    authors: [{ name: "Siddharth Jain", url: "https://www.sidojain.dev" }],
     creator: "Siddharth Jain",
     publisher: "Siddharth Jain",
     keywords: ["Siddharth Jain", "Sido Jain", "sidojain", "Vaultify", "Software Engineer", "Software Developer", "Full Stack Developer", "AI/ML Developer", "Blockchain Developer", "Artificial Intelligence", "Machine Learning", "Computer Science", "USICT", "GGSIPU", "Open Source", "Tech Portfolio"],
     robots: "index,follow"
 }
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
             <body>
