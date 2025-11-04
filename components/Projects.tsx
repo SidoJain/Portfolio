@@ -1,11 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { CTA } from "@/components/cards/CTA"
+import { ProjectCard } from "@/components/cards/ProjectCard"
 import { useState } from "react"
 import Image from "next/image"
 
@@ -199,118 +196,21 @@ export default function Projects() {
                     }}
                     className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr"
                 >
-                    {projects.map((project, index) => {
-                        const isHovered = hoveredProject === index
-                        const colorClasses = colorMap[project.color]
-
-                        return (
-                            <motion.div
-                                key={index}
-                                variants={{
-                                    initial: { opacity: 0, y: 60, scale: 0.9, rotateX: 10 },
-                                    animate: {
-                                        opacity: 1,
-                                        y: 0,
-                                        scale: 1,
-                                        rotateX: 0,
-                                        transition: {
-                                            duration: 0.6,
-                                            type: "spring",
-                                            stiffness: 80,
-                                            damping: 15,
-                                        },
-                                    },
-                                }}
-                                whileHover={{
-                                    y: -12,
-                                    rotateX: 5,
-                                    rotateY: 2,
-                                    scale: 1.03,
-                                    transition: {
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 15,
-                                        duration: 0.4,
-                                    },
-                                }}
-                                onHoverStart={() => setHoveredProject(index)}
-                                onHoverEnd={() => setHoveredProject(null)}
-                                className="group"
-                            >
-                                <motion.div className="perspective-1000">
-                                    <Card className={`h-full aspect-square transition-all duration-500 cursor-default relative overflow-hidden border-slate-200 ${isHovered ? colorClasses.border : ""} hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"} transform-gpu flex flex-col`}>
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-
-                                        <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                                        <CardHeader className="relative z-10">
-                                            <CardTitle className={`text-slate-800 group-hover:${colorClasses.text} transition-all duration-300 text-xl group-hover:scale-125 mb-2`}>
-                                                {project.title}
-                                            </CardTitle>
-                                            <CardDescription className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300 leading-relaxed text-justify">
-                                                {project.description}
-                                            </CardDescription>
-                                        </CardHeader>
-
-                                        <CardContent className="relative z-10 flex-1 flex flex-col justify-between">
-                                            <div className="flex flex-wrap gap-2 mb-6">
-                                                {project.tech.map((tech) => (
-                                                    <motion.div key={tech} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
-                                                        <Badge
-                                                            variant="secondary"
-                                                            className={`${colorClasses.badgeBg} ${colorClasses.badgeText} ${colorClasses.badgeBorder} border hover:shadow-sm transition-all duration-300 font-medium text-xs`}
-                                                        >
-                                                            {tech}
-                                                        </Badge>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
-
-                                            <div className="flex gap-3">
-                                                <Button
-                                                    asChild
-                                                    variant="outline"
-                                                    size="sm"
-                                                    className="border-slate-300 text-slate-600 bg-transparent group-hover:bg-white hover:scale-105 group-hover:text-black group-hover:border-slate-600 transition-all duration-300 flex-1"
-                                                >
-                                                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                                        <Image
-                                                            src="icons/github.svg"
-                                                            alt="GitHub"
-                                                            width="24"
-                                                            height="24"
-                                                            style={{ fill: "#181717" }}
-                                                            loading="lazy"
-                                                        />
-                                                        Code
-                                                    </a>
-                                                </Button>
-                                                {project.live && (
-                                                    <Button
-                                                        asChild
-                                                        variant="outline"
-                                                        size="sm"
-                                                        className="border-emerald-300 text-emerald-600 hover:scale-105 bg-transparent group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition-all duration-300 flex-1"
-                                                    >
-                                                        <a href={project.live} target="_blank" rel="noopener noreferrer">
-                                                            <ExternalLink className="w-4 h-4 mr-2" />
-                                                            Live
-                                                        </a>
-                                                    </Button>
-                                                )}
-                                            </div>
-                                        </CardContent>
-
-                                        <motion.div
-                                            className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-lg blur opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
-                                            animate={isHovered ? { scale: [1, 1.02, 1] } : {}}
-                                            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                                        />
-                                    </Card>
-                                </motion.div>
-                            </motion.div>
-                        )
-                    })}
+                    {projects.map((project, index) => (
+                        <ProjectCard
+                            key={index}
+                            title={project.title}
+                            description={project.description}
+                            tech={project.tech}
+                            github={project.github}
+                            live={project.live}
+                            color={colorMap[project.color]}
+                            gradient={project.gradient}
+                            isHovered={hoveredProject === index}
+                            onHoverStart={() => setHoveredProject(index)}
+                            onHoverEnd={() => setHoveredProject(null)}
+                        />
+                    ))}
                 </motion.div>
 
                 <CTA subline={

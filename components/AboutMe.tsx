@@ -3,8 +3,8 @@
 import { motion } from "framer-motion"
 import { CodeXml, Brain, Blocks, Lightbulb } from "lucide-react"
 import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CTA } from "@/components/cards/CTA"
+import { AboutMeCard } from "@/components/cards/AboutMeCard"
 
 const colorMap = {
     blue: {
@@ -137,80 +137,20 @@ export default function AboutMe() {
                     }}
                     className="grid md:grid-cols-2 gap-8 lg:gap-12"
                 >
-                    {Object.entries(aboutCards).map(([key, card], index) => {
-                        const Icon = card.icon
-                        const isHovered = hoveredCard === key
-                        const color = colorMap[card.color as keyof typeof colorMap]
-
-                        return (
-                            <motion.div
-                                key={key}
-                                variants={{
-                                    initial: { opacity: 0, x: index % 2 === 0 ? -50 : 50, y: 30 },
-                                    animate: {
-                                        opacity: 1,
-                                        x: 0,
-                                        y: 0,
-                                        transition: { duration: 0.7, type: "spring", stiffness: 80, damping: 20 },
-                                    },
-                                }}
-                                whileHover={{
-                                    scale: 1.03,
-                                    rotate: index % 2 === 0 ? 1 : -1,
-                                    transition: { type: "spring", stiffness: 300, damping: 20 },
-                                }}
-                                onHoverStart={() => setHoveredCard(key)}
-                                onHoverEnd={() => setHoveredCard(null)}
-                                className="group"
-                            >
-                                <Card className={`h-full transition-all duration-700 cursor-pointer relative overflow-hidden ${color.border} ${isHovered ? color.hoverBorder : color.border} ${isHovered ? `shadow-xl ${color.shadow}` : "shadow-md"} ${isHovered ? color.bg : "bg-white"} hover:shadow-2xl`}>
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-700`} />
-
-                                    <motion.div
-                                        className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${card.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
-                                        style={{ clipPath: "polygon(100% 0%, 0% 0%, 100% 100%)" }}
-                                    />
-
-                                    <CardHeader className="relative z-10 pb-4">
-                                        <div className="flex items-start gap-4">
-                                            <motion.div
-                                                whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                                                transition={{ duration: 0.5 }}
-                                                className={`p-3 rounded-2xl ${color.iconBg} border-2 ${color.border} group-hover:shadow-lg transition-all duration-500 flex-shrink-0`}
-                                            >
-                                                <Icon className={`w-7 h-7 ${color.text}`} />
-                                            </motion.div>
-                                            <div className="flex-1">
-                                                <CardTitle className={`text-slate-800 group-hover:${color.text} transition-all duration-500 text-xl group-hover:translate-x-1`}>
-                                                    {card.title}
-                                                </CardTitle>
-                                            </div>
-                                        </div>
-                                    </CardHeader>
-
-                                    <CardContent className="relative z-10 pt-0">
-                                        <motion.p
-                                            className={`text-slate-600 group-hover:text-slate-800 transition-all duration-500 text-base leading-relaxed group-hover:font-medium`}
-                                            whileHover={{ x: 5 }}
-                                            transition={{ type: "spring", stiffness: 300 }}
-                                        >
-                                            {card.description}
-                                        </motion.p>
-                                    </CardContent>
-
-                                    <motion.div
-                                        className={`absolute inset-0 bg-gradient-to-r ${card.gradient} rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-xl`}
-                                        animate={
-                                            isHovered
-                                                ? { scale: [1, 1.02, 1], opacity: [0, 0.1, 0] }
-                                                : {}
-                                        }
-                                        transition={{ duration: 3, repeat: Infinity }}
-                                    />
-                                </Card>
-                            </motion.div>
-                        )
-                    })}
+                    {Object.entries(aboutCards).map(([key, card], index) => (
+                        <AboutMeCard
+                            key={key}
+                            title={card.title}
+                            icon={card.icon}
+                            color={colorMap[card.color as keyof typeof colorMap]}
+                            description={card.description}
+                            gradient={card.gradient}
+                            index={index}
+                            isHovered={hoveredCard === key}
+                            onHoverStart={() => setHoveredCard(key)}
+                            onHoverEnd={() => setHoveredCard(null)}
+                        />
+                    ))}
                 </motion.div>
 
                 <CTA boldline="🎓 BTech in Computer Science & Engineering" subline="Class of 2027 • USICT, GGSIPU • Delhi, India" />

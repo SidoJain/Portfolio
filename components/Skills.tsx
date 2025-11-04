@@ -3,9 +3,8 @@
 import { motion } from "framer-motion"
 import { CodeXml, Server, Brain, Blocks, Cloud, Wrench } from "lucide-react"
 import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { CTA } from "@/components/cards/CTA"
+import { SkillCard } from "@/components/cards/SkillCard"
 
 type ColorProps = {
     bg: string;
@@ -15,7 +14,7 @@ type ColorProps = {
     borderHover: string;
     shadow: string;
     ring: string;
-};
+}
 
 const colorMap: Record<string, ColorProps> = {
     blue: {
@@ -71,27 +70,6 @@ const colorMap: Record<string, ColorProps> = {
         borderHover: "hover:border-cyan-400",
         shadow: "hover:shadow-cyan-500/20",
         ring: "ring-cyan-300",
-    },
-}
-
-const badgeVariants = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: {
-        opacity: 1,
-        scale: 1,
-        transition: {
-            type: "spring" as const,
-            stiffness: 200,
-            damping: 20,
-        },
-    },
-    hover: {
-        scale: 1.1,
-        transition: {
-            type: "spring" as const,
-            stiffness: 400,
-            damping: 10,
-        },
     },
 }
 
@@ -214,77 +192,19 @@ export default function Skills() {
                     }}
                     className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
-                    {Object.entries(skills).map(([key, skillCategory]) => {
-                        const Icon = skillCategory.icon
-                        const color = colorMap[skillCategory.color]
-                        const isHovered = hoveredCard === key
-
-                        return (
-                            <motion.div
-                                key={key}
-                                variants={{
-                                    initial: { opacity: 0, y: 60 },
-                                    animate: {
-                                        opacity: 1,
-                                        y: 0,
-                                        transition: { duration: 0.6, type: "spring", stiffness: 100, damping: 15 },
-                                    },
-                                }}
-                                whileHover={{
-                                    y: -10,
-                                    scale: 1.02,
-                                    transition: { type: "spring", stiffness: 400, damping: 10 },
-                                }}
-                                onHoverStart={() => setHoveredCard(key)}
-                                onHoverEnd={() => setHoveredCard(null)}
-                                className="group"
-                            >
-                                <Card className={`relative overflow-hidden h-full cursor-pointer transition-all duration-500 ${color.border} ${color.borderHover} ${color.shadow} ${isHovered ? color.bg : "bg-white"}`}>
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${skillCategory.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                                    <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${skillCategory.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
-
-                                    <CardHeader className="relative z-10">
-                                        <div className="flex items-center gap-3 mb-2">
-                                            <motion.div
-                                                whileHover={{ rotate: 360, scale: 1.1 }}
-                                                transition={{ duration: 0.6, type: "spring" }}
-                                                className={`p-2 rounded-xl border ${color.border} ${color.bg} group-hover:shadow-lg transition-all duration-300`}
-                                            >
-                                                <Icon className={`w-5 h-5 ${color.text}`} />
-                                            </motion.div>
-                                            <CardTitle className={`text-lg ${color.text} group-hover:scale-105 transition-all duration-300`}>
-                                                {skillCategory.title}
-                                            </CardTitle>
-                                        </div>
-                                    </CardHeader>
-
-                                    <CardContent className="relative z-10">
-                                        <div className="flex flex-wrap gap-2">
-                                            {skillCategory.skills.map((skill) => (
-                                                <motion.div
-                                                    key={skill}
-                                                    variants={badgeVariants}
-                                                    initial="initial"
-                                                    animate="animate"
-                                                    whileHover="hover"
-                                                >
-                                                    <Badge className={`font-medium ${color.border} ${color.text} ${color.bg} ${color.hover} transition-all duration-300 cursor-pointer`}>
-                                                        {skill}
-                                                    </Badge>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </CardContent>
-
-                                    <motion.div
-                                        className={`absolute -inset-1 bg-gradient-to-r ${skillCategory.gradient} rounded-lg blur opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
-                                        animate={isHovered ? { scale: [1, 1.05, 1] } : {}}
-                                        transition={{ duration: 2, repeat: Infinity }}
-                                    />
-                                </Card>
-                            </motion.div>
-                        )
-                    })}
+                    {Object.entries(skills).map(([key, skillCategory]) => (
+                        <SkillCard
+                            key={key}
+                            title={skillCategory.title}
+                            icon={skillCategory.icon}
+                            color={colorMap[skillCategory.color]}
+                            skills={skillCategory.skills}
+                            gradient={skillCategory.gradient}
+                            isHovered={hoveredCard === key}
+                            onHoverStart={() => setHoveredCard(key)}
+                            onHoverEnd={() => setHoveredCard(null)}
+                        />
+                    ))}
                 </motion.div>
 
                 <CTA subline="✨ Always learning and exploring new technologies" />
