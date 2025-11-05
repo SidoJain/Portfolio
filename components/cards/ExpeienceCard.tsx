@@ -22,7 +22,7 @@ interface ExperienceCardProps {
 const getColorClasses = (color: string, isHovered: boolean) => {
     const colors = {
         blue: {
-            border: isHovered ? "border-blue-400" : "border-blue-300",
+            border: isHovered ? "border-blue-400" : "border-blue-200",
             shadow: "shadow-blue-500/25",
             text: "text-blue-600",
             bg: "bg-blue-50/50",
@@ -33,7 +33,7 @@ const getColorClasses = (color: string, isHovered: boolean) => {
             gradient: "from-blue-500 to-cyan-500",
         },
         purple: {
-            border: isHovered ? "border-purple-400" : "border-purple-300",
+            border: isHovered ? "border-purple-400" : "border-purple-200",
             shadow: "shadow-purple-500/25",
             text: "text-purple-600",
             bg: "bg-purple-50/50",
@@ -44,7 +44,7 @@ const getColorClasses = (color: string, isHovered: boolean) => {
             gradient: "from-purple-500 to-violet-500",
         },
         emerald: {
-            border: isHovered ? "border-emerald-400" : "border-emerald-300",
+            border: isHovered ? "border-emerald-400" : "border-emerald-200",
             shadow: "shadow-emerald-500/25",
             text: "text-emerald-600",
             bg: "bg-emerald-50/50",
@@ -93,7 +93,6 @@ export function ExperienceCard({ title, company, location, period, description, 
             {/* Timeline dot */}
             <motion.div
                 className={`hidden md:flex absolute left-0 top-0 w-12 h-12 rounded-full border-4 border-white ${colorClasses.dotBg} shadow-lg items-center justify-center`}
-                animate={isHovered ? { scale: 1.2 } : { scale: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
                 <motion.div
@@ -104,7 +103,7 @@ export function ExperienceCard({ title, company, location, period, description, 
             </motion.div>
 
             {/* Experience Card */}
-            <Card className={`md:ml-20 transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 hover:${colorClasses.border} hover:shadow-xl hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"}`}>
+            <Card className={`md:ml-20 transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 ${colorClasses.border} hover:shadow-xl hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"}`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${colorClasses.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colorClasses.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
