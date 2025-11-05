@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 // all in fixtures is set to tailwind v3 as interims solutions
 
@@ -10,6 +11,9 @@ const config: Config = {
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
         "*.{js,ts,jsx,tsx,mdx}"
     ],
+    future: {
+        hoverOnlyWhenSupported: true
+    },
     theme: {
         extend: {
             colors: {
@@ -93,6 +97,19 @@ const config: Config = {
             }
         }
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+        require("tailwindcss-animate"),
+        plugin(({ addVariant }) => {
+            addVariant('hover-always', [
+                '@media (hover: hover) and (pointer: fine) { &:hover }',
+                '@media not all and (hover: hover) and (pointer: fine)'
+            ])
+
+            addVariant('group-hover-always', [
+                '@media (hover: hover) and (pointer: fine) { .group:hover & }',
+                '@media not all and (hover: hover) and (pointer: fine)'
+            ])
+        })
+    ],
 };
 export default config;

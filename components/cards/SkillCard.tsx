@@ -53,19 +53,19 @@ export function SkillCard({ title, icon: Icon, color, skills, gradient, isHovere
             className="group"
         >
             <Card className={`relative overflow-hidden h-full cursor-pointer transition-all duration-500 ${color.border} ${color.borderHover} ${color.shadow} ${isHovered ? color.bg : "bg-white"}`}>
-                <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover-always:opacity-5 transition-opacity duration-500`} />
+                <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${gradient} opacity-0 group-hover-always:opacity-20 transition-opacity duration-500 blur-sm`} />
 
                 <CardHeader className="relative z-10">
                     <div className="flex items-center gap-3 mb-2">
                         <motion.div
                             whileHover={{ rotate: 360, scale: 1.1 }}
                             transition={{ duration: 0.6, type: "spring" }}
-                            className={`p-2 rounded-xl border ${color.border} ${color.bg} group-hover:shadow-lg transition-all duration-300`}
+                            className={`p-2 rounded-xl border ${color.border} ${color.bg} group-hover-always:shadow-lg transition-all duration-300`}
                         >
                             <Icon className={`w-5 h-5 ${color.text}`} />
                         </motion.div>
-                        <CardTitle className={`text-lg ${color.text} group-hover:scale-105 transition-all duration-300`}>
+                        <CardTitle className={`text-lg ${color.text} group-hover-always:scale-105 transition-all duration-300`}>
                             {title}
                         </CardTitle>
                     </div>
@@ -84,7 +84,7 @@ export function SkillCard({ title, icon: Icon, color, skills, gradient, isHovere
                 </CardContent>
 
                 <motion.div
-                    className={`absolute -inset-1 bg-gradient-to-r ${gradient} rounded-lg blur opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
+                    className={`absolute -inset-1 bg-gradient-to-r ${gradient} rounded-lg blur opacity-0 group-hover-always:opacity-20 transition-opacity duration-500 -z-10`}
                     animate={isHovered ? { scale: [1, 1.05, 1] } : {}}
                     transition={{ duration: 2, repeat: Infinity }}
                 />

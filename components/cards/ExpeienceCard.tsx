@@ -103,14 +103,14 @@ export function ExperienceCard({ title, company, location, period, description, 
             </motion.div>
 
             {/* Experience Card */}
-            <Card className={`md:ml-20 transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 ${colorClasses.border} hover:shadow-xl hover:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"}`}>
-                <div className={`absolute inset-0 bg-gradient-to-br ${colorClasses.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colorClasses.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <Card className={`md:ml-20 transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 ${colorClasses.border} hover-always:shadow-xl hover-always:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"}`}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${colorClasses.gradient} opacity-0 group-hover-always:opacity-5 transition-opacity duration-500`} />
+                <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colorClasses.gradient} opacity-0 group-hover-always:opacity-100 transition-opacity duration-500`} />
 
                 <CardHeader className="relative z-10 pb-3">
                     <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
-                            <CardTitle className={`text-slate-800 group-hover:${colorClasses.text} group-hover:scale-110 transition-all duration-300 text-xl group-hover:translate-x-1`}>
+                            <CardTitle className={`text-slate-800 group-hover-always:${colorClasses.text} group-hover-always:scale-110 transition-all duration-300 text-xl group-hover-always:translate-x-1`}>
                                 {title}
                             </CardTitle>
                             <p className={`text-base font-semibold ${colorClasses.text} mt-1`}>{company}</p>
@@ -130,7 +130,7 @@ export function ExperienceCard({ title, company, location, period, description, 
                 </CardHeader>
 
                 <CardContent className="relative z-10">
-                    <p className="text-slate-700 mb-4 leading-relaxed group-hover:text-slate-800 transition-colors duration-300">
+                    <p className="text-slate-700 mb-4 leading-relaxed group-hover-always:text-slate-800 transition-colors duration-300">
                         {description}
                     </p>
 
@@ -147,7 +147,7 @@ export function ExperienceCard({ title, company, location, period, description, 
                 </CardContent>
 
                 <motion.div
-                    className={`absolute -inset-1 bg-gradient-to-r ${colorClasses.gradient} rounded-lg blur opacity-0 group-hover:opacity-15 transition-opacity duration-500 -z-10`}
+                    className={`absolute -inset-1 bg-gradient-to-r ${colorClasses.gradient} rounded-lg blur opacity-0 group-hover-always:opacity-15 transition-opacity duration-500 -z-10`}
                     animate={isHovered ? { scale: [1, 1.02, 1] } : {}}
                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 />
