@@ -190,7 +190,7 @@ export default function Contact() {
                                         <a href="https://www.linkedin.com/in/sido-jain/" target="_blank" className="flex items-center gap-2">
                                             <Image
                                                 src="icons/linkedin.svg"
-                                                alt="LinkedIn"
+                                                alt=""
                                                 width="20"
                                                 height="20"
                                                 style={{ fill: '#181717' }}
@@ -208,7 +208,7 @@ export default function Contact() {
                                         <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
                                             <Image
                                                 src="icons/github.svg"
-                                                alt="GitHub"
+                                                alt=""
                                                 width="20"
                                                 height="20"
                                                 style={{ fill: '#181717' }}
@@ -226,7 +226,7 @@ export default function Contact() {
                                         <a href="https://leetcode.com/u/Jain_Sido/" target="_blank" className="flex items-center gap-2" rel="noopener noreferrer">
                                             <Image
                                                 src="icons/leetcode.svg"
-                                                alt="Leetcode"
+                                                alt=""
                                                 width="20"
                                                 height="20"
                                                 style={{ fill: '#181717' }}
