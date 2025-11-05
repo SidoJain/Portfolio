@@ -18,7 +18,7 @@ type ColorProps = {
 
 const colorMap: Record<string, ColorProps> = {
     indigo: {
-        border: "border-indigo-200",
+        border: "border-indigo-300",
         shadow: "shadow-indigo-500/25",
         text: "text-indigo-600",
         bg: "bg-indigo-50/50",
@@ -27,7 +27,7 @@ const colorMap: Record<string, ColorProps> = {
         badgeBorder: "border-indigo-200",
     },
     cyan: {
-        border: "border-cyan-200",
+        border: "border-cyan-300",
         shadow: "shadow-cyan-500/25",
         text: "text-cyan-600",
         bg: "bg-cyan-50/50",
@@ -36,7 +36,7 @@ const colorMap: Record<string, ColorProps> = {
         badgeBorder: "border-cyan-200",
     },
     emerald: {
-        border: "border-emerald-200",
+        border: "border-emerald-300",
         shadow: "shadow-emerald-500/25",
         text: "text-emerald-600",
         bg: "bg-emerald-50/50",
@@ -45,7 +45,7 @@ const colorMap: Record<string, ColorProps> = {
         badgeBorder: "border-emerald-200",
     },
     amber: {
-        border: "border-amber-200",
+        border: "border-amber-300",
         shadow: "shadow-amber-500/25",
         text: "text-amber-600",
         bg: "bg-amber-50/50",
@@ -54,7 +54,7 @@ const colorMap: Record<string, ColorProps> = {
         badgeBorder: "border-amber-200",
     },
     rose: {
-        border: "border-rose-200",
+        border: "border-rose-300",
         shadow: "shadow-rose-500/25",
         text: "text-rose-600",
         bg: "bg-rose-50/50",
@@ -63,7 +63,7 @@ const colorMap: Record<string, ColorProps> = {
         badgeBorder: "border-rose-200",
     },
     violet: {
-        border: "border-violet-200",
+        border: "border-violet-300",
         shadow: "shadow-violet-500/25",
         text: "text-violet-600",
         bg: "bg-violet-50/50",
