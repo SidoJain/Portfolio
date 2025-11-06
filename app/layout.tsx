@@ -4,7 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css'
 
 export const metadata: Metadata = {
-    title: 'Siddharth Jain | Software Dev',
+    title: 'Siddharth Jain | Software Dev Portfolio',
     description: 'Full-stack developer, Blockchain explorer, ML enthusiast and Lifelong Learner.',
     icons: {
         icon: "/favicon.ico"
