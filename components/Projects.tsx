@@ -79,7 +79,7 @@ export default function Projects() {
     const projects = [
         {
             title: "Pokemon Soul Link",
-            description: "A full-stack project that enables users manage collaborative Pokemon Soul Link games. Has 20+ active users.",
+            description: "A full-stack project that enables users manage collaborative Pokemon Soul Link games. Has 25+ active users.",
             tech: ["Next.js", "MongoDB", "Supabase", "JWT", "Tailwind", "Lucide", "OAuth"],
             github: "https://github.com/SidoJain/Pokemon-Soul-Link",
             live: "https://pokemon-soul-link.vercel.app/",
