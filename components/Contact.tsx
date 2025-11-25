@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { motion, AnimatePresence } from "framer-motion"
 import Script from "next/script"
 import { Mail, Send, User, MessageSquare, Copy, Check, BookOpenText } from "lucide-react"
