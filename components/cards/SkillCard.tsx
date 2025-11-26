@@ -6,13 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { TechBadge } from "@/components/ui/TechBadge"
 
 type ColorProps = {
-    bg: string;
-    text: string;
-    border: string;
-    hover: string;
-    borderHover: string;
-    shadow: string;
-    ring: string;
+    bg: string
+    text: string
+    border: string
+    hover: string
+    borderHover: string
+    shadow: string
+    ring: string
 }
 
 interface SkillCardProps {

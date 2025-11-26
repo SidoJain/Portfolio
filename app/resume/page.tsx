@@ -6,7 +6,7 @@ export async function generateMetadata() {
         alternates: {
             canonical: "https://www.sidojain.dev/resume",
         },
-    };
+    }
 }
 
 export default function Resume() {

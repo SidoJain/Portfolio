@@ -13,8 +13,8 @@ import Image from "next/image"
 declare global {
     interface Window {
         grecaptcha: {
-            ready: (callback: () => void) => void;
-            execute: (siteKey: string, options: { action: string }) => Promise<string>;
+            ready: (callback: () => void) => void
+            execute: (siteKey: string, options: { action: string }) => Promise<string>
         }
     }
 }
@@ -41,7 +41,7 @@ export default function Contact() {
 
         try {
             // Execute reCAPTCHA
-            const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
+            const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!
             const token = await new Promise((resolve, reject) => {
                 window.grecaptcha.ready(() => {
                     window.grecaptcha.execute(siteKey, { action: "submit" })
@@ -61,9 +61,9 @@ export default function Contact() {
             formData.append("g-recaptcha-response", token as string)
 
             // Send email using EmailJS
-            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
+            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
             const result = await emailjs.sendForm(
                 serviceId,
                 templateId,

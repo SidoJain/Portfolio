@@ -7,13 +7,13 @@ import { CTA } from "@/components/cards/CTA"
 import { SkillCard } from "@/components/cards/SkillCard"
 
 type ColorProps = {
-    bg: string;
-    text: string;
-    border: string;
-    hover: string;
-    borderHover: string;
-    shadow: string;
-    ring: string;
+    bg: string
+    text: string
+    border: string
+    hover: string
+    borderHover: string
+    shadow: string
+    ring: string
 }
 
 const colorMap: Record<string, ColorProps> = {
