@@ -186,7 +186,7 @@ export default function Contact() {
                                         size="lg"
                                         className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
                                     >
-                                        <a href="https://www.linkedin.com/in/sido-jain/" target="_blank" className="flex items-center gap-2">
+                                        <a href="https://www.linkedin.com/in/sido-jain/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                             <Image
                                                 src="icons/linkedin.svg"
                                                 alt=""
