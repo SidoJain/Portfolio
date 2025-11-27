@@ -80,7 +80,7 @@ export default function Projects() {
         {
             title: "Pokemon Soul Link",
             description: "A full-stack project that enables users manage collaborative Pokemon Soul Link games. Has 25+ active users.",
-            tech: ["Next.js", "MongoDB", "Supabase", "JWT", "Tailwind", "Lucide", "OAuth"],
+            tech: ["Next.js", "TypeScript", "MongoDB", "Supabase", "JWT", "Tailwind", "Lucide", "Auth"],
             github: "https://github.com/SidoJain/Pokemon-Soul-Link",
             live: "https://pokemon-soul-link.vercel.app/",
             color: "indigo",
@@ -97,7 +97,7 @@ export default function Projects() {
         {
             title: "Sepolia Faucet",
             description: "A simple web application that allows Ethereum developers to request and receive free testnet ETH on the Sepolia test network.",
-            tech: ["Solidity", "JavaScript", "Web3.js", "Hardhat", "Ethereum"],
+            tech: ["Solidity", "JavaScript", "Web3.js", "Hardhat", "Ethereum", "Blockchain"],
             github: "https://github.com/SidoJain/Sepolia-Faucet",
             live: "https://sepolia-faucet-five.vercel.app/",
             color: "emerald",
@@ -114,7 +114,7 @@ export default function Projects() {
         {
             title: "Vero Chat",
             description: "A full-stack project that enables users to connect, communicate, and share messages instantly. Has 10+ active users.",
-            tech: ["Next.js", "MongoDB", "Socket.io", "JWT", "Tailwind", "Lucide", "BCrypt"],
+            tech: ["Next.js", "TypeScript", "MongoDB", "Socket.io", "JWT", "Tailwind", "Lucide", "BCrypt"],
             github: "https://github.com/SidoJain/Vero-Chat",
             live: "https://vero-chat.onrender.com/",
             color: "violet",
@@ -123,7 +123,7 @@ export default function Projects() {
         {
             title: "Tetris",
             description: "Tetris game in PyGame using a Flask server and Redis for the high score.",
-            tech: ["PyGame", "Flask", "Redis", "GUI"],
+            tech: ["Python", "PyGame", "Flask", "Redis", "GUI"],
             github: "https://github.com/SidoJain/Tetris-V2",
             color: "rose",
             gradient: "from-rose-500 to-pink-500",
