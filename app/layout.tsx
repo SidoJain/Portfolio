@@ -5,7 +5,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
     title: 'Siddharth Jain | Software Dev Portfolio',
-    description: 'Full-stack developer, Blockchain explorer, ML enthusiast and Lifelong Learner. Each project is an experiment in shipping reliable systems, understanding trade‑offs, and writing code that can be read, extended, and debugged.',
+    description: 'Full-stack developer, Blockchain explorer, ML enthusiast, and Lifelong Learner building practical, scalable products on the web.',
     icons: {
         icon: "/favicon.ico"
     },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     authors: [{ name: "Siddharth Jain", url: "https://www.sidojain.dev" }],
     creator: "Siddharth Jain",
     publisher: "Siddharth Jain",
-    keywords: ["Siddharth Jain", "Sido Jain", "sidojain", "Vaultify", "Software Engineer", "Software Developer", "Full Stack Developer", "AI/ML Developer", "Blockchain Developer", "Artificial Intelligence", "Machine Learning", "Computer Science", "USICT", "GGSIPU", "Open Source", "Tech Portfolio"],
+    keywords: ["Siddharth Jain", "Sido Jain", "sidojain", "Vaultify", "Software Engineer", "Software Developer", "Frontend", "Backend", "Full Stack Developer", "AI/ML Developer", "Blockchain Developer", "Artificial Intelligence", "Machine Learning", "Computer Science", "USICT", "GGSIPU", "Open Source", "Tech Portfolio"],
     robots: "index,follow"
 }
 
