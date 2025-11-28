@@ -170,7 +170,7 @@ export default function HeroSection() {
                         <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
                             <Image
                                 src="icons/github.svg"
-                                alt=""
+                                alt="GitHub"
                                 width="24"
                                 height="24"
                                 style={{ fill: '#181717' }}

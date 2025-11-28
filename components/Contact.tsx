@@ -132,8 +132,7 @@ export default function Contact() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div>
-                                            <p className="text-slate-200 font-medium">Email</p>
-                                            <p className="text-slate-300">{email}</p>
+                                            <p className="text-slate-200 font-medium">Copy Email Address</p>
                                         </div>
 
                                         <button
@@ -189,7 +188,7 @@ export default function Contact() {
                                         <a href="https://www.linkedin.com/in/sido-jain/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                             <Image
                                                 src="icons/linkedin.svg"
-                                                alt=""
+                                                alt="LinkedIn"
                                                 width="20"
                                                 height="20"
                                                 style={{ fill: '#181717' }}
@@ -207,7 +206,7 @@ export default function Contact() {
                                         <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
                                             <Image
                                                 src="icons/github.svg"
-                                                alt=""
+                                                alt="GitHub"
                                                 width="20"
                                                 height="20"
                                                 style={{ fill: '#181717' }}
@@ -225,7 +224,7 @@ export default function Contact() {
                                         <a href="https://leetcode.com/u/Jain_Sido/" target="_blank" className="flex items-center gap-2" rel="noopener noreferrer">
                                             <Image
                                                 src="icons/leetcode.svg"
-                                                alt=""
+                                                alt="Leetcode"
                                                 width="20"
                                                 height="20"
                                                 style={{ fill: '#181717' }}

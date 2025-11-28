@@ -211,7 +211,7 @@ export default function Projects() {
                         >
                             <Image
                                 src="icons/github.svg"
-                                alt=""
+                                alt="GitHub"
                                 width="24"
                                 height="24"
                                 style={{ fill: "#181717" }}
