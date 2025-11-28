@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+
 import { motion, AnimatePresence } from "framer-motion"
 import Script from "next/script"
 import { Mail, Send, User, MessageSquare, Copy, Check, BookOpenText } from "lucide-react"
@@ -24,61 +25,37 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
     const [copied, setCopied] = useState(false)
-
     const email = "sidojain30705@gmail.com"
+
     const handleCopy = () => {
         navigator.clipboard.writeText(email)
         setCopied(true)
         setTimeout(() => setCopied(false), 2000)
     }
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        if (!form.current) return
-
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
         setIsSubmitting(true)
-        setSubmitStatus("idle")
 
         try {
-            // Execute reCAPTCHA
-            const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!
-            const token = await new Promise((resolve, reject) => {
-                window.grecaptcha.ready(() => {
-                    window.grecaptcha.execute(siteKey, { action: "submit" })
-                        .then(resolve)
-                        .catch(reject)
-                })
-            })
-
-            if (!window.grecaptcha) {
-                alert("reCAPTCHA failed to load. Please try again.")
-                setIsSubmitting(false)
-                return
+            const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: "submit" })
+            const templateParams = {
+                user_name: form.current?.user_name.value,
+                user_email: form.current?.user_email.value,
+                subject: form.current?.subject.value,
+                message: form.current?.message.value,
+                grecaptcha_token: token,
             }
 
-            // Add reCAPTCHA token to form data
-            const formData = new FormData(form.current)
-            formData.append("g-recaptcha-response", token as string)
-
-            // Send email using EmailJS
-            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
-            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
-            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-            const result = await emailjs.sendForm(
-                serviceId,
-                templateId,
-                form.current,
-                publicKey,
+            await emailjs.send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                templateParams,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
             )
 
-            if (result.status === 200) {
-                setSubmitStatus("success")
-                form.current.reset()
-            } else {
-                setSubmitStatus("error")
-            }
+            setSubmitStatus("success")
         } catch (error) {
-            console.error("Error sending email:", error)
             setSubmitStatus("error")
         } finally {
             setIsSubmitting(false)
@@ -102,9 +79,7 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-semibold mb-6 text-white">
-                            Contact Me
-                        </h2>
+                        <h2 className="text-4xl font-semibold mb-6 text-white">Contact Me</h2>
                         <p className="text-xl text-slate-300 mb-12">
                             I&apos;m always open to discussing new opportunities and interesting projects
                         </p>
@@ -249,6 +224,54 @@ export default function Contact() {
                                     I&apos;m genuinely curious about your goals and committed to finding solutions that work for both
                                     your users and your business.
                                 </p>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
+                                viewport={{ once: true }}
+                                className="mt-12"
+                            >
+                                <h3 className="text-2xl font-semibold text-white mb-6">My Socials</h3>
+                                <div className="flex gap-6">
+                                    <a
+                                        href="https://x.com/JainSido"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="X"
+                                        className="text-slate-400 hover:text-slate-200 transition-colors duration-300"
+                                    >
+                                        <svg
+                                            className="w-6 h-6"
+                                            fill="currentColor"
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.207-6.807-5.974 6.807H2.306l7.644-8.74L1.126 2.25h6.840l4.713 6.231 5.579-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+                                        </svg>
+                                    </a>
+                                    <a
+                                        href="https://instagram.com/sido_jain"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Instagram"
+                                        className="text-slate-400 hover:text-pink-400 transition-colors duration-300"
+                                    >
+                                        <svg
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </motion.div>
                         </motion.div>
 
