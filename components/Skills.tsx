@@ -116,7 +116,7 @@ export default function Skills() {
             title: "Tools",
             icon: Wrench,
             color: "cyan",
-            skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux"],
+            skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux", "LaTeX"],
             gradient: "from-cyan-500 to-blue-500",
         },
     }
