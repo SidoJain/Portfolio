@@ -208,6 +208,78 @@ export default function Contact() {
                                             <span className="text-black font-semibold">LeetCode</span>
                                         </a>
                                     </Button>
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        size="lg"
+                                        className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
+                                    >
+                                        <a href="https://codeforces.com/profile/SidoJain" target="_blank" rel="noopener noreferrer">
+                                            <Image
+                                                src="icons/codeforces.svg"
+                                                alt="Codeforces"
+                                                width="20"
+                                                height="20"
+                                                style={{ fill: '#181717' }}
+                                                loading="lazy"
+                                            />
+                                            <span className="text-black font-semibold">Codeforces</span>
+                                        </a>
+                                    </Button>
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        size="lg"
+                                        className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
+                                    >
+                                        <a href="https://www.geeksforgeeks.org/profile/sidojain" target="_blank" rel="noopener noreferrer">
+                                            <Image
+                                                src="icons/geeksforgeeks.svg"
+                                                alt="Geeksforgeeks"
+                                                width="20"
+                                                height="20"
+                                                style={{ fill: '#181717' }}
+                                                loading="lazy"
+                                            />
+                                            <span className="text-black font-semibold">GeeksForGeeks</span>
+                                        </a>
+                                    </Button>
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        size="lg"
+                                        className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
+                                    >
+                                        <a href="https://x.com/JainSido" target="_blank" rel="noopener noreferrer">
+                                            <Image
+                                                src="icons/x.svg"
+                                                alt="twitter"
+                                                width="20"
+                                                height="20"
+                                                style={{ fill: '#181717' }}
+                                                loading="lazy"
+                                            />
+                                            <span className="text-black font-semibold">Twitter</span>
+                                        </a>
+                                    </Button>
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        size="lg"
+                                        className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
+                                    >
+                                        <a href="https://instagram.com/sido_jain" target="_blank" rel="noopener noreferrer">
+                                            <Image
+                                                src="icons/instagram.svg"
+                                                alt="instagram"
+                                                width="20"
+                                                height="20"
+                                                style={{ fill: '#181717' }}
+                                                loading="lazy"
+                                            />
+                                            <span className="text-black font-semibold">Instagram</span>
+                                        </a>
+                                    </Button>
                                 </div>
                             </div>
 
@@ -224,54 +296,6 @@ export default function Contact() {
                                     I&apos;m genuinely curious about your goals and committed to finding solutions that work for both
                                     your users and your business.
                                 </p>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, x: -50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.8 }}
-                                viewport={{ once: true }}
-                                className="mt-12"
-                            >
-                                <h3 className="text-2xl font-semibold text-white mb-6">My Socials</h3>
-                                <div className="flex gap-6">
-                                    <a
-                                        href="https://x.com/JainSido"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="X"
-                                        className="text-slate-400 hover:text-slate-200 transition-colors duration-300"
-                                    >
-                                        <svg
-                                            className="w-6 h-6"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.207-6.807-5.974 6.807H2.306l7.644-8.74L1.126 2.25h6.840l4.713 6.231 5.579-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href="https://instagram.com/sido_jain"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Instagram"
-                                        className="text-slate-400 hover:text-pink-400 transition-colors duration-300"
-                                    >
-                                        <svg
-                                            className="w-6 h-6"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="1.5"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
-                                        </svg>
-                                    </a>
-                                </div>
                             </motion.div>
                         </motion.div>
 
