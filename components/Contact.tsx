@@ -39,6 +39,24 @@ export default function Contact() {
 
         try {
             const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: "submit" })
+
+            const verifyResponse = await fetch('/api/verify-recaptcha', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token }),
+            })
+
+            const verifyData = await verifyResponse.json()
+            if (!verifyData.success) {
+                console.error('reCAPTCHA verification failed:', verifyData.message)
+                setSubmitStatus("error")
+                setIsSubmitting(false)
+                return
+            }
+
+            console.log('reCAPTCHA verification successful, score:', verifyData.score)
             const templateParams = {
                 user_name: form.current?.user_name.value,
                 user_email: form.current?.user_email.value,
@@ -55,7 +73,9 @@ export default function Contact() {
             )
 
             setSubmitStatus("success")
-        } catch {
+            form.current?.reset()
+        } catch (error) {
+            console.error('Form submission error:', error)
             setSubmitStatus("error")
         } finally {
             setIsSubmitting(false)
