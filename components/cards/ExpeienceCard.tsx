@@ -117,7 +117,7 @@ export function ExperienceCard({ title, company, location, period, description, 
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 text-sm text-slate-600">
+                    <div className="flex justify-between text-sm text-slate-600">
                         <div className="flex items-center gap-1">
                             <Calendar className="w-4 h-4" />
                             {period}
@@ -130,7 +130,7 @@ export function ExperienceCard({ title, company, location, period, description, 
                 </CardHeader>
 
                 <CardContent className="relative z-10">
-                    <p className="text-slate-700 mb-4 leading-relaxed group-hover-always:text-slate-800 transition-colors duration-300">
+                    <p className="text-slate-700 mb-4 leading-relaxed group-hover-always:text-slate-800 transition-colors duration-300 text-justify">
                         {description}
                     </p>
 

@@ -13,7 +13,7 @@ export default function Experience() {
             title: "AI/ML, Blockchain & Full Stack Intern",
             company: "Vaultify.club",
             location: "Remote",
-            period: "June 2025 - September 2025",
+            period: "June 2025 - Sept 2025",
             description: "Built scalable web applications using Next.js and Node.js. Leveraged AWS Bedrock models, integrated with Lambda, WAF, Textract, S3 and Kendra, for scalable Gen AI apps. Designed and implemented smart contracts using Solidity on the Ethereum Blockchain.",
             skills: ["TypeScript", "Python", "Solidity", "Next.js", "AWS Bedrock", "AWS Lambda", "AWS WAF", "AWS Textract", "AWS S3", "AWS Kendra", "Ethereum"],
             color: "blue"
