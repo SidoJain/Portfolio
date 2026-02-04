@@ -113,14 +113,14 @@ export default function Projects() {
         },
         {
             title: "Vero Chat",
-            description: "A full-stack project that enables users to connect, communicate, and share messages instantly. Has 10+ active users.",
-            tech: ["Next.js", "TypeScript", "MongoDB", "Socket.io", "JWT", "Tailwind", "Lucide", "BCrypt"],
+            description: "A full-stack project that enables users to connect, communicate, and share messages instantly. Has 20+ active users.",
+            tech: ["Next.js", "TypeScript", "MongoDB", "WebSockets", "JWT", "Tailwind", "Lucide", "BCrypt"],
             github: "https://github.com/SidoJain/Vero-Chat",
             live: "https://vero-chat.onrender.com/",
             color: "violet",
             gradient: "from-violet-500 to-blue-500",
         },
-        {
+        { 
             title: "Tetris",
             description: "Tetris game in PyGame using a Flask server and Redis for the high score.",
             tech: ["Python", "PyGame", "Flask", "Redis", "GUI"],
