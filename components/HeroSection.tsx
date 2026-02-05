@@ -90,7 +90,7 @@ const BackgroundPattern = () => (
 
 export default function HeroSection() {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+        <section id="home" className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden pt-20 md:pt-24">
             <BackgroundPattern />
             <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] animate-blob-move -z-10" style={{ animationDelay: '0s', animationDuration: '20s' }} />
             <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-blue-900 rounded-full blur-[120px] animate-blob-move -z-10" style={{ animationDelay: '5s', animationDuration: '10s' }} />
