@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import { Analytics } from "@vercel/analytics/next"
 import './globals.css'
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.sidojain.dev'
+
 export const metadata: Metadata = {
+    metadataBase: new URL(BASE_URL),
     title: 'Siddharth Jain | Software Dev Portfolio',
     description: 'Full-stack developer, Blockchain explorer, ML enthusiast, and Lifelong Learner building practical, scalable products on the web.',
     icons: {
         icon: "/favicon.ico"
     },
     alternates: {
-        canonical: "https://www.sidojain.dev",
+        canonical: BASE_URL,
     },
-    authors: [{ name: "Siddharth Jain", url: "https://www.sidojain.dev" }],
+    authors: [{ name: "Siddharth Jain", url: BASE_URL }],
     creator: "Siddharth Jain",
     publisher: "Siddharth Jain",
     keywords: ["Siddharth Jain", "Sido Jain", "sidojain", "Vaultify", "Software Engineer", "Software Developer", "Frontend", "Backend", "Full Stack Developer", "AI/ML Developer", "Blockchain Developer", "Artificial Intelligence", "Machine Learning", "Computer Science", "USICT", "GGSIPU", "Open Source", "Tech Portfolio"],
@@ -19,11 +22,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Siddharth Jain - Software Dev Portfolio',
         description: 'Full-stack developer, Blockchain explorer, ML enthusiast, and Lifelong Learner building practical, scalable products on the web.',
-        url: 'https://www.sidojain.dev',
+        url: BASE_URL,
         siteName: 'Portfolio Website',
         images: [
             {
-                url: 'https://www.sidojain.dev/og-image.jpg',
+                url: 'og-image.jpg',
                 width: 1200,
                 height: 630,
             },
