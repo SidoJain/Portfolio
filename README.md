@@ -6,36 +6,13 @@ A personal portfolio website to showcase my projects, skills, and experience. Bu
 
 👉 [View Live](https://sidojain.vercel.app/)
 
-## ✨ Features
-
-- Responsive and accessible design
-- Project showcase with GitHub links
-- Clean UI using modern component libraries
-- Resume viewing and downloading
-
 ## 🚀 Tech Stack
 
 - **Framework:** Next.js
 - **Styling:** Tailwind CSS, Framer Motion
 - **Icons:** Lucide Icons
 - **Deployment:** Vercel
-- **Analytics:** Vercel Analytics
-
-## 🛠️ Setup Instructions
-
-```bash
-# Clone the repository
-git clone https://github.com/SidoJain/Portfolio.git
-
-# Navigate into the directory
-cd portfolio
-
-# Install dependencies
-npm install
-
-# Run the development server
-npm run dev
-```
+- **Analytics:** Google Analytics
 
 ## 📬 Contact
 
