@@ -81,21 +81,21 @@ export default function Skills() {
             title: "Frontend",
             icon: CodeXml,
             color: "blue",
-            skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "JWT", "Zustand"],
+            skills: ["HTML", "CSS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion", "Axios"],
             gradient: "from-blue-500 to-cyan-500",
         },
         backend: {
             title: "Backend",
             icon: Server,
             color: "emerald",
-            skills: ["Node.js", "Express", "Python", "MySQL", "MongoDB", "Flask", "BCrypt", "Socket.io", "Supabase", "Auth"],
+            skills: ["Node.js", "Express.js", "MySQL", "Flask", "FastAPI", "WebSocket", "MongoDB", "PostgreSQL", "MySQL", "Redis", "Supabase"],
             gradient: "from-emerald-500 to-teal-500",
         },
         ml: {
             title: "Machine Learning",
             icon: Brain,
             color: "purple",
-            skills: ["Scikit-learn", "Pandas", "NumPy", "Neural Networks", "Ollama", "Jupyter"],
+            skills: ["Generative AI", "Neural Networks", "Scikit-Learn", "Pandas", "NumPy", "TensorFlow", "Ollama"],
             gradient: "from-purple-500 to-pink-500",
         },
         blockchain: {
@@ -109,7 +109,7 @@ export default function Skills() {
             title: "DevOps",
             icon: Cloud,
             color: "pink",
-            skills: ["Docker", "Kubernetes", "AWS", "Vercel", "Github Actions"],
+            skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD Pipelines"],
             gradient: "from-pink-500 to-rose-500",
         },
         tools: {
