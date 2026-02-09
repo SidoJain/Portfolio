@@ -12,16 +12,16 @@ const AboutMe = dynamic(() => import('@/components/AboutMe'), {
     loading: () => <div className="h-64 animate-pulse bg-gray-200 rounded-lg"></div>,
 })
 
-const Skills = dynamic(() => import('@/components/Skills'), {
-    loading: () => <div className="h-48 animate-pulse bg-gray-200 rounded-lg"></div>,
+const Projects = dynamic(() => import('@/components/Projects'), {
+    loading: () => <div className="h-96 animate-pulse bg-gray-200 rounded-lg"></div>,
 })
 
 const Experience = dynamic(() => import('@/components/Experience'), {
     loading: () => <div className="h-80 animate-pulse bg-gray-200 rounded-lg"></div>,
 })
 
-const Projects = dynamic(() => import('@/components/Projects'), {
-    loading: () => <div className="h-96 animate-pulse bg-gray-200 rounded-lg"></div>,
+const Skills = dynamic(() => import('@/components/Skills'), {
+    loading: () => <div className="h-48 animate-pulse bg-gray-200 rounded-lg"></div>,
 })
 
 const Contact = dynamic(() => import('@/components/Contact'), {
@@ -34,9 +34,9 @@ export default function Portfolio() {
             <Header />
             <HeroSection />
             <AboutMe />
-            <Skills />
-            <Experience />
             <Projects />
+            <Experience />
+            <Skills />
             <Contact />
             <Footer />
         </div>
