@@ -95,7 +95,7 @@ export default function Skills() {
             title: "Machine Learning",
             icon: Brain,
             color: "purple",
-            skills: ["Generative AI", "Neural Networks", "Scikit-Learn", "Pandas", "NumPy", "TensorFlow", "Ollama"],
+            skills: ["Generative AI", "Neural Networks", "Scikit-Learn", "Pandas", "NLTK", "TensorFlow", "Ollama"],
             gradient: "from-purple-500 to-pink-500",
         },
         blockchain: {
