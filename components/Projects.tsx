@@ -95,11 +95,10 @@ export default function Projects() {
             gradient: "from-cyan-500 to-blue-500",
         },
         {
-            title: "Sepolia Faucet",
-            description: "A simple web application that allows Ethereum developers to request and receive free testnet ETH on the Sepolia test network.",
-            tech: ["Solidity", "JavaScript", "Web3.js", "Hardhat", "Ethereum", "Blockchain"],
-            github: "https://github.com/SidoJain/Sepolia-Faucet",
-            live: "https://sepolia-faucet-five.vercel.app/",
+            title: "Reviews Sentiment Analysis",
+            description: "An automated scraping and sentiment analysis pipeline to extract and visualize consumer insights from Best Buy product reviews.",
+            tech: ["Sentiment Analysis", "Web Scraping", "Selenium", "TextBlob", "BeautifulSoup", "NLTK"],
+            github: "https://github.com/SidoJain/Web-Scraping-Sentiment-Analysis",
             color: "emerald",
             gradient: "from-emerald-500 to-teal-500",
         },
@@ -120,19 +119,19 @@ export default function Projects() {
             color: "violet",
             gradient: "from-violet-500 to-blue-500",
         },
-        { 
-            title: "Next Word Predictor",
-            description: "A deep learning based web application that predicts the next word in a sequence of text (trained on William Shakespeare's Hamlet).",
-            tech: ["Deep Learning", "Streamlit", "TensorFlow", "LSTM RNN", "Neural Networks"],
-            github: "https://github.com/SidoJain/Next-Word-Prediction-LSTM-RNN",
-            live: "https://next-word-predictor-rnn.streamlit.app/",
+        {
+            title: "Sepolia Faucet",
+            description: "A faucet application with a public frontend to dispense daily allocations of Sepolia ETH, successfully distributing 100+ Sepolia ETH.",
+            tech: ["Solidity", "JavaScript", "Web3.js", "Hardhat", "Ethereum", "Blockchain"],
+            github: "https://github.com/SidoJain/Sepolia-Faucet",
+            live: "https://sepolia-faucet-five.vercel.app/",
             color: "rose",
             gradient: "from-rose-500 to-pink-500",
         },
     ]
 
     return (
-        <section id="projects"className="py-20 px-4 pt-32 bg-gradient-to-br from-slate-50 via-purple-50/20 to-slate-100 relative overflow-hidden">
+        <section id="projects" className="py-20 px-4 pt-32 bg-gradient-to-br from-slate-50 via-purple-50/20 to-slate-100 relative overflow-hidden">
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(139,69,19,0.1)_1px,transparent_1px),linear-gradient(-45deg,rgba(139,69,19,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
             </div>
