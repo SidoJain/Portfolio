@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion"
 import { CodeXml, Brain, Blocks, Lightbulb } from "lucide-react"
 import { useState } from "react"
 import { CTA } from "@/components/cards/CTA"
@@ -43,6 +43,7 @@ const colorMap = {
 
 export default function AboutMe() {
     const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+    const shouldReduceMotion = useReducedMotion()
 
     const aboutCards = {
         fullstack: {
@@ -76,85 +77,88 @@ export default function AboutMe() {
     }
 
     return (
-        <section id="about" className="py-20 px-4 pt-32 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.15)_1px,transparent_0)] bg-[size:40px_40px]" />
-            </div>
+        <LazyMotion features={domAnimation}>
+            <section id="about" className="py-20 px-4 pt-32 bg-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.15)_1px,transparent_0)] bg-[size:40px_40px]" />
+                </div>
 
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
-                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                    className="absolute top-20 right-20 w-32 h-32 border border-blue-200/30 rounded-full"
-                />
-                <motion.div
-                    animate={{ rotate: [360, 0], x: [0, 20, 0] }}
-                    transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    className="absolute bottom-32 left-16 w-24 h-24 border border-purple-200/30 rounded-lg transform rotate-45"
-                />
-                <motion.div
-                    animate={{ y: [0, -30, 0], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    className="absolute top-1/2 left-8 w-16 h-16 bg-gradient-to-br from-emerald-200/40 to-blue-200/40 rounded-full"
-                />
-            </div>
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <m.div
+                        animate={shouldReduceMotion ? {} : { rotate: [0, 360], scale: [1, 1.1, 1] }}
+                        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                        className="absolute top-20 right-20 w-32 h-32 border border-blue-200/30 rounded-full"
+                    />
+                    <m.div
+                        initial={{ rotate: 45 }}
+                        animate={shouldReduceMotion ? {} : { rotate: [360, 0], x: [0, 20, 0] }}
+                        transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        className="absolute bottom-32 left-16 w-24 h-24 border border-purple-200/30 rounded-lg"
+                    />
+                    <m.div
+                        animate={shouldReduceMotion ? {} : { y: [0, -30, 0], opacity: [0.3, 0.6, 0.3] }}
+                        transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                        className="absolute top-1/2 left-8 w-16 h-16 bg-gradient-to-br from-emerald-200/40 to-blue-200/40 rounded-full"
+                    />
+                </div>
 
-            <div className="max-w-6xl mx-auto relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <div className="inline-flex items-center gap-3 mb-6">
-                        <h2 className="text-4xl font-bold text-slate-800">About Me</h2>
-                    </div>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <m.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
                         viewport={{ once: true }}
-                        className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+                        className="text-center mb-16"
                     >
-                        I&apos;m a passionate Computer Science student who believes in the power of technology to transform ideas into reality.
-                        My journey spans across multiple domains, always driven by curiosity and the desire to create meaningful impact.
-                    </motion.p>
-                </motion.div>
+                        <div className="inline-flex items-center gap-3 mb-6">
+                            <h2 className="text-4xl font-bold text-slate-800">About Me</h2>
+                        </div>
+                        <m.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            viewport={{ once: true }}
+                            className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+                        >
+                            I&apos;m a passionate Computer Science student who believes in the power of technology to transform ideas into reality.
+                            My journey spans across multiple domains, always driven by curiosity and the desire to create meaningful impact.
+                        </m.p>
+                    </m.div>
 
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true, amount: 0.2 }}
-                    variants={{
-                        initial: {},
-                        animate: {
-                            transition: {
-                                staggerChildren: 0.1,
-                                delayChildren: 0.2,
+                    <m.div
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={{
+                            initial: {},
+                            animate: {
+                                transition: {
+                                    staggerChildren: 0.1,
+                                    delayChildren: 0.2,
+                                },
                             },
-                        },
-                    }}
-                    className="grid md:grid-cols-2 gap-8 lg:gap-12"
-                >
-                    {Object.entries(aboutCards).map(([key, card], index) => (
-                        <AboutMeCard
-                            key={key}
-                            title={card.title}
-                            icon={card.icon}
-                            color={colorMap[card.color as keyof typeof colorMap]}
-                            description={card.description}
-                            gradient={card.gradient}
-                            index={index}
-                            isHovered={hoveredCard === key}
-                            onHoverStart={() => setHoveredCard(key)}
-                            onHoverEnd={() => setHoveredCard(null)}
-                        />
-                    ))}
-                </motion.div>
+                        }}
+                        className="grid md:grid-cols-2 gap-8 lg:gap-12"
+                    >
+                        {Object.entries(aboutCards).map(([key, card], index) => (
+                            <AboutMeCard
+                                key={key}
+                                title={card.title}
+                                icon={card.icon}
+                                color={colorMap[card.color as keyof typeof colorMap]}
+                                description={card.description}
+                                gradient={card.gradient}
+                                index={index}
+                                isHovered={hoveredCard === key}
+                                onHoverStart={() => setHoveredCard(key)}
+                                onHoverEnd={() => setHoveredCard(null)}
+                            />
+                        ))}
+                    </m.div>
 
-                <CTA boldline="🎓 BTech in Computer Science & Engineering" subline="Class of 2027 • USICT, GGSIPU • Delhi, India" />
-            </div>
-        </section>
+                    <CTA boldline="🎓 BTech in Computer Science & Engineering" subline="Class of 2027 • USICT, GGSIPU • Delhi, India" />
+                </div>
+            </section>
+        </LazyMotion>
     )
 }

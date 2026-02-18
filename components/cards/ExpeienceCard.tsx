@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Calendar, MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { TechBadge } from "@/components/ui/TechBadge"
@@ -62,7 +62,7 @@ export function ExperienceCard({ title, company, location, period, description, 
     const colorClasses = getColorClasses(color, isHovered)
 
     return (
-        <motion.div
+        <m.div
             variants={{
                 initial: { opacity: 0, x: -50, y: 30 },
                 animate: {
@@ -83,7 +83,7 @@ export function ExperienceCard({ title, company, location, period, description, 
         >
             {/* Timeline connector */}
             {!isLast && (
-                <motion.div
+                <m.div
                     className="hidden md:block absolute left-6 top-20 w-1 h-12 bg-gradient-to-b from-slate-300 to-transparent"
                     animate={isHovered ? { scaleY: 1.2 } : { scaleY: 1 }}
                     transition={{ duration: 0.3 }}
@@ -91,21 +91,21 @@ export function ExperienceCard({ title, company, location, period, description, 
             )}
 
             {/* Timeline dot */}
-            <motion.div
+            <m.div
                 className={`hidden md:flex absolute left-0 top-0 w-12 h-12 rounded-full border-4 border-white ${colorClasses.dotBg} shadow-lg items-center justify-center`}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-                <motion.div
+                <m.div
                     animate={isHovered ? { rotate: 360 } : { rotate: 0 }}
                     transition={{ duration: 0.6 }}
                     className="w-2 h-2 bg-white rounded-full"
                 />
-            </motion.div>
+            </m.div>
 
             {/* Experience Card */}
             <Card className={`md:ml-20 transition-all duration-500 cursor-pointer relative overflow-hidden border-slate-200 ${colorClasses.border} hover-always:shadow-xl hover-always:${colorClasses.shadow} ${isHovered ? colorClasses.bg : "bg-white"}`}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${colorClasses.gradient} opacity-0 group-hover-always:opacity-5 transition-opacity duration-500`} />
-                <motion.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colorClasses.gradient} opacity-0 group-hover-always:opacity-100 transition-opacity duration-500`} />
+                <m.div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${colorClasses.gradient} opacity-0 group-hover-always:opacity-100 transition-opacity duration-500`} />
 
                 <CardHeader className="relative z-10 pb-3">
                     <div className="flex items-start justify-between mb-2">
@@ -146,12 +146,12 @@ export function ExperienceCard({ title, company, location, period, description, 
                     </div>
                 </CardContent>
 
-                <motion.div
+                <m.div
                     className={`absolute -inset-1 bg-gradient-to-r ${colorClasses.gradient} rounded-lg blur opacity-0 group-hover-always:opacity-15 transition-opacity duration-500 -z-10`}
                     animate={isHovered ? { scale: [1, 1.02, 1] } : {}}
                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 />
             </Card>
-        </motion.div>
+        </m.div>
     )
 }

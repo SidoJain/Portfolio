@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { LucideIcon } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { TechBadge } from "@/components/ui/TechBadge"
@@ -34,7 +34,7 @@ export function SkillCard({ title, icon: Icon, color, skills, gradient, isHovere
     }
 
     return (
-        <motion.div
+        <m.div
             variants={{
                 initial: { opacity: 0, y: 60 },
                 animate: {
@@ -58,13 +58,13 @@ export function SkillCard({ title, icon: Icon, color, skills, gradient, isHovere
 
                 <CardHeader className="relative z-10">
                     <div className="flex items-center gap-3 mb-2">
-                        <motion.div
+                        <m.div
                             whileHover={{ rotate: 360, scale: 1.1 }}
                             transition={{ duration: 0.6, type: "spring" }}
                             className={`p-2 rounded-xl border ${color.border} ${color.bg} group-hover-always:shadow-lg transition-all duration-300`}
                         >
                             <Icon className={`w-5 h-5 ${color.text}`} />
-                        </motion.div>
+                        </m.div>
                         <CardTitle className={`text-lg ${color.text} group-hover-always:scale-105 transition-all duration-300`}>
                             {title}
                         </CardTitle>
@@ -83,12 +83,12 @@ export function SkillCard({ title, icon: Icon, color, skills, gradient, isHovere
                     </div>
                 </CardContent>
 
-                <motion.div
+                <m.div
                     className={`absolute -inset-1 bg-gradient-to-r ${gradient} rounded-lg blur opacity-0 group-hover-always:opacity-20 transition-opacity duration-500 -z-10`}
                     animate={isHovered ? { scale: [1, 1.05, 1] } : {}}
                     transition={{ duration: 2, repeat: Infinity }}
                 />
             </Card>
-        </motion.div>
+        </m.div>
     )
 }

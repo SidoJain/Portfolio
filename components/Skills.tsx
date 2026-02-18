@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { LazyMotion, domAnimation, m } from "framer-motion"
 import { CodeXml, Server, Brain, Blocks, Cloud, Wrench } from "lucide-react"
 import { useState } from "react"
 import { CTA } from "@/components/cards/CTA"
@@ -73,142 +73,144 @@ const colorMap: Record<string, ColorProps> = {
     },
 }
 
+const skills = {
+    frontend: {
+        title: "Frontend",
+        icon: CodeXml,
+        color: "blue",
+        skills: ["HTML", "CSS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion", "Axios"],
+        gradient: "from-blue-500 to-cyan-500",
+    },
+    backend: {
+        title: "Backend",
+        icon: Server,
+        color: "emerald",
+        skills: ["Node.js", "Express.js", "Flask", "FastAPI", "WebSocket", "MongoDB", "Redis", "PostgreSQL", "MySQL", "Supabase", "SQLite"],
+        gradient: "from-emerald-500 to-teal-500",
+    },
+    ml: {
+        title: "Machine Learning",
+        icon: Brain,
+        color: "purple",
+        skills: ["Generative AI", "Neural Networks", "Scikit-Learn", "Pandas", "NLTK", "TensorFlow", "Ollama"],
+        gradient: "from-purple-500 to-pink-500",
+    },
+    blockchain: {
+        title: "Blockchain",
+        icon: Blocks,
+        color: "orange",
+        skills: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Hardhat"],
+        gradient: "from-orange-500 to-red-500",
+    },
+    devops: {
+        title: "DevOps",
+        icon: Cloud,
+        color: "pink",
+        skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD Pipelines"],
+        gradient: "from-pink-500 to-rose-500",
+    },
+    tools: {
+        title: "Tools",
+        icon: Wrench,
+        color: "cyan",
+        skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux", "LaTeX"],
+        gradient: "from-cyan-500 to-blue-500",
+    },
+}
+
 export default function Skills() {
     const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
-    const skills = {
-        frontend: {
-            title: "Frontend",
-            icon: CodeXml,
-            color: "blue",
-            skills: ["HTML", "CSS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion", "Axios"],
-            gradient: "from-blue-500 to-cyan-500",
-        },
-        backend: {
-            title: "Backend",
-            icon: Server,
-            color: "emerald",
-            skills: ["Node.js", "Express.js", "Flask", "FastAPI", "WebSocket", "MongoDB", "Redis", "PostgreSQL", "MySQL", "Supabase", "SQLite"],
-            gradient: "from-emerald-500 to-teal-500",
-        },
-        ml: {
-            title: "Machine Learning",
-            icon: Brain,
-            color: "purple",
-            skills: ["Generative AI", "Neural Networks", "Scikit-Learn", "Pandas", "NLTK", "TensorFlow", "Ollama"],
-            gradient: "from-purple-500 to-pink-500",
-        },
-        blockchain: {
-            title: "Blockchain",
-            icon: Blocks,
-            color: "orange",
-            skills: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Hardhat"],
-            gradient: "from-orange-500 to-red-500",
-        },
-        devops: {
-            title: "DevOps",
-            icon: Cloud,
-            color: "pink",
-            skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD Pipelines"],
-            gradient: "from-pink-500 to-rose-500",
-        },
-        tools: {
-            title: "Tools",
-            icon: Wrench,
-            color: "cyan",
-            skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux", "LaTeX"],
-            gradient: "from-cyan-500 to-blue-500",
-        },
-    }
-
     return (
-        <section
-            id="skills"
-            className="py-20 px-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 pt-32 relative overflow-hidden"
-        >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-30">
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
-            </div>
+        <LazyMotion features={domAnimation}>
+            <section
+                id="skills"
+                className="py-20 px-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 pt-32 relative overflow-hidden"
+            >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-30">
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
+                </div>
 
-            {/* Floating Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl"
-                />
-                <motion.div
-                    animate={{ y: [0, 30, 0], rotate: [0, -5, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl"
-                />
-                <motion.div
-                    animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-20 left-1/4 w-24 h-24 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-xl"
-                />
-            </div>
+                {/* Floating Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <m.div
+                        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl"
+                    />
+                    <m.div
+                        animate={{ y: [0, 30, 0], rotate: [0, -5, 0] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-xl"
+                    />
+                    <m.div
+                        animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+                        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-20 left-1/4 w-24 h-24 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-xl"
+                    />
+                </div>
 
-            <div className="max-w-6xl mx-auto relative z-10">
-                {/* Heading */}
-                <motion.div
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <motion.div
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+                <div className="max-w-6xl mx-auto relative z-10">
+                    {/* Heading */}
+                    <m.div
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 mb-4"
+                        className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-slate-800">
-                            Skills & Technologies
-                        </h2>
-                    </motion.div>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="text-lg text-slate-600 max-w-2xl mx-auto"
+                        <m.div
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 mb-4"
+                        >
+                            <h2 className="text-4xl font-bold text-slate-800">
+                                Skills & Technologies
+                            </h2>
+                        </m.div>
+                        <m.p
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="text-lg text-slate-600 max-w-2xl mx-auto"
+                        >
+                            A comprehensive toolkit of technologies I use to bring ideas to life
+                        </m.p>
+                    </m.div>
+
+                    {/* Skill Cards */}
+                    <m.div
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true, amount: 0.3 }}
+                        variants={{
+                            initial: {},
+                            animate: { transition: { staggerChildren: 0.1 } },
+                        }}
+                        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
                     >
-                        A comprehensive toolkit of technologies I use to bring ideas to life
-                    </motion.p>
-                </motion.div>
+                        {Object.entries(skills).map(([key, skillCategory]) => (
+                            <SkillCard
+                                key={key}
+                                title={skillCategory.title}
+                                icon={skillCategory.icon}
+                                color={colorMap[skillCategory.color]}
+                                skills={skillCategory.skills}
+                                gradient={skillCategory.gradient}
+                                isHovered={hoveredCard === key}
+                                onHoverStart={() => setHoveredCard(key)}
+                                onHoverEnd={() => setHoveredCard(null)}
+                            />
+                        ))}
+                    </m.div>
 
-                {/* Skill Cards */}
-                <motion.div
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={{
-                        initial: {},
-                        animate: { transition: { staggerChildren: 0.1 } },
-                    }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {Object.entries(skills).map(([key, skillCategory]) => (
-                        <SkillCard
-                            key={key}
-                            title={skillCategory.title}
-                            icon={skillCategory.icon}
-                            color={colorMap[skillCategory.color]}
-                            skills={skillCategory.skills}
-                            gradient={skillCategory.gradient}
-                            isHovered={hoveredCard === key}
-                            onHoverStart={() => setHoveredCard(key)}
-                            onHoverEnd={() => setHoveredCard(null)}
-                        />
-                    ))}
-                </motion.div>
-
-                <CTA subline="✨ Always learning and exploring new technologies" />
-            </div>
-        </section>
+                    <CTA subline="✨ Always learning and exploring new technologies" />
+                </div>
+            </section>
+        </LazyMotion>
     )
 }

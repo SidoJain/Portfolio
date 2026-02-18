@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 
 interface TechBadgeProps {
@@ -36,7 +36,7 @@ const badgeVariants = {
 
 export function TechBadge({ tech, colorClasses, variant = "secondary" }: TechBadgeProps) {
     return (
-        <motion.div
+        <m.div
             variants={badgeVariants}
             initial="initial"
             animate="animate"
@@ -48,6 +48,6 @@ export function TechBadge({ tech, colorClasses, variant = "secondary" }: TechBad
             >
                 {tech}
             </Badge>
-        </motion.div>
+        </m.div>
     )
 }
