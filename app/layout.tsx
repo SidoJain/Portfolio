@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { GoogleTagManager } from '@next/third-parties/google'
 import './globals.css'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
@@ -50,10 +48,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body>
-                {process.env.NEXT_PUBLIC_GTM_ID && <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />}
                 {children}
                 <Analytics />
-                {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />}
             </body>
         </html>
     )
