@@ -106,7 +106,7 @@ const skills = {
         title: "DevOps",
         icon: Cloud,
         color: "pink",
-        skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD Pipelines"],
+        skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD Pipelines", "SSH"],
         gradient: "from-pink-500 to-rose-500",
     },
     tools: {

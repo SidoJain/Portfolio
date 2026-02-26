@@ -86,7 +86,7 @@ const projects = [
     {
         title: "Cypher",
         description: "A terminal-based text editor implemented in C featuring advanced functionalities.",
-        tech: ["C", "Low Level Systems Programming", "Terminal", "Linux", "WSL2", "macOS", "File I/O", "Data Structures"],
+        tech: ["C", "TUI", "Linux", "macOS", "File I/O", "Data Structures", "Tree Sitter", "Piece Table"],
         github: "https://github.com/SidoJain/Cypher",
         color: "cyan",
         gradient: "from-cyan-500 to-blue-500",
