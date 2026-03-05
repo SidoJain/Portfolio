@@ -76,7 +76,7 @@ const colorMap: Record<string, ColorProps> = {
 const projects = [
     {
         title: "Pokemon Soul Link",
-        description: "A full-stack project that enables users manage collaborative Pokemon Soul Link games. Has 45+ active users.",
+        description: "A full-stack project that enables users manage collaborative Pokemon Soul Link games. Has 50+ active users.",
         tech: ["Next.js", "TypeScript", "MongoDB", "Supabase", "JWT", "Tailwind", "Lucide", "Auth"],
         github: "https://github.com/SidoJain/Pokemon-Soul-Link",
         live: "https://pokemon-soul-link.vercel.app/",
