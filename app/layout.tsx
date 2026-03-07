@@ -7,7 +7,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 export const metadata: Metadata = {
     metadataBase: new URL(BASE_URL),
     title: 'Siddharth Jain | Software Dev Portfolio',
-    description: 'Full-stack developer, Blockchain explorer, ML enthusiast, and Lifelong Learner building practical, scalable products on the web.',
+    description: 'Full-stack developer, Blockchain explorer, AI enthusiast, and Lifelong Learner building practical, scalable products on the web.',
     icons: {
         icon: "/favicon.ico"
     },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Siddharth Jain - Software Developer Portfolio',
-        description: 'Full-stack developer, Blockchain explorer, ML enthusiast, and Lifelong Learner building practical, scalable products on the web.',
+        description: 'Full-stack developer, Blockchain explorer, AI enthusiast, and Lifelong Learner building practical, scalable products on the web.',
         images: ['/og-image.jpg'],
         creator: '@JainSido',
         site: '@JainSido',

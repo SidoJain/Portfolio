@@ -134,7 +134,7 @@ export default function HeroSection() {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="text-lg sm:text-2xl text-slate-600 mb-8 max-w-2xl mx-auto"
                     >
-                        Full Stack Developer • ML Enthusiast <span className="hidden sm:inline">•</span> <span className="block sm:inline">Blockchain Explorer</span>
+                        Full Stack Developer • AI Enthusiast <span className="hidden sm:inline">•</span> <span className="block sm:inline">Blockchain Explorer</span>
                     </m.p>
 
                     <m.p

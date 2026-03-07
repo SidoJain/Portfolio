@@ -54,7 +54,7 @@ export default function AboutMe() {
             gradient: "from-blue-500 to-indigo-600",
         },
         ml: {
-            title: "ML Enthusiast",
+            title: "AI/ML Enthusiast",
             icon: Brain,
             color: "purple",
             description: "Enthusiastic about AI/ML for creating intelligent solutions.",
