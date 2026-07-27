@@ -1,86 +1,134 @@
 "use client"
 
 import type React from "react"
+import { useCallback, useRef, useState } from "react"
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion"
 import Script from "next/script"
-import { Mail, Send, User, MessageSquare, Copy, Check, BookOpenText } from "lucide-react"
-import { useState, useRef } from "react"
+import Image from "next/image"
+import { Mail, Send, User, MessageSquare, Copy, Check, BookOpenText, type LucideIcon } from "lucide-react"
 import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Image from "next/image"
+
+const EMAIL = "sidojain30705@gmail.com"
+
+const SOCIAL_LINKS = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/sido-jain/", icon: "/icons/linkedin.svg" },
+    { label: "GitHub", href: "https://github.com/SidoJain", icon: "/icons/github.svg" },
+    { label: "LeetCode", href: "https://leetcode.com/u/Jain_Sido/", icon: "/icons/leetcode.svg" },
+    { label: "Codeforces", href: "https://codeforces.com/profile/SidoJain", icon: "/icons/codeforces.svg" },
+    { label: "GeeksForGeeks", href: "https://www.geeksforgeeks.org/profile/sidojain", icon: "/icons/geeksforgeeks.svg" },
+    { label: "Twitter", href: "https://x.com/JainSido", icon: "/icons/x.svg" },
+    { label: "Instagram", href: "https://instagram.com/sido_jain", icon: "/icons/instagram.svg" },
+]
+
+type FormField = {
+    id: "user_name" | "user_email" | "subject" | "message"
+    label: string
+    icon: LucideIcon
+    placeholder: string
+    type: "text" | "email" | "textarea"
+    autoComplete?: string
+    rows?: number
+}
+
+const FORM_FIELDS: FormField[] = [
+    { id: "user_name", label: "Name", icon: User, placeholder: "Your name", type: "text", autoComplete: "name" },
+    { id: "user_email", label: "Email", icon: Mail, placeholder: "your.name@email.com", type: "email", autoComplete: "email" },
+    { id: "subject", label: "Subject", icon: BookOpenText, placeholder: "What's this about?", type: "text" },
+    { id: "message", label: "Message", icon: MessageSquare, placeholder: "Tell me about your project or just say hello!", type: "textarea", rows: 5 },
+]
 
 declare global {
     interface Window {
-        grecaptcha: {
+        grecaptcha?: {
             ready: (callback: () => void) => void
             execute: (siteKey: string, options: { action: string }) => Promise<string>
         }
     }
 }
 
+function waitForRecaptcha(timeoutMs = 10_000): Promise<NonNullable<Window["grecaptcha"]>> {
+    return new Promise((resolve, reject) => {
+        const started = Date.now()
+        const poll = () => {
+            if (window.grecaptcha?.execute) {
+                window.grecaptcha.ready(() => resolve(window.grecaptcha!))
+                return
+            }
+            if (Date.now() - started > timeoutMs) {
+                reject(new Error("reCAPTCHA failed to load"))
+                return
+            }
+            setTimeout(poll, 100)
+        }
+        poll()
+    })
+}
+
 export default function Contact() {
-    const form = useRef<HTMLFormElement>(null)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
     const [copied, setCopied] = useState(false)
     const [loadRecaptcha, setLoadRecaptcha] = useState(false)
-    const email = "sidojain30705@gmail.com"
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(email)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
-    }
+    const handleCopy = useCallback(async () => {
+        try {
+            await navigator.clipboard.writeText(EMAIL)
+            setCopied(true)
+            setTimeout(() => setCopied(false), 2000)
+        } catch {
+            // Clipboard API rejects on insecure origins or denied permissions.
+        }
+    }, [])
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         setIsSubmitting(true)
+        setSubmitStatus("idle")
 
+        const form = event.currentTarget
         try {
-            const token = await window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, { action: "submit" })
+            const grecaptcha = await waitForRecaptcha()
+            const token = await grecaptcha.execute(
+                process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+                { action: "submit" },
+            )
 
-            const verifyResponse = await fetch('/api/verify-recaptcha', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            const verifyResponse = await fetch("/api/verify-recaptcha", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token }),
             })
 
             const verifyData = await verifyResponse.json()
             if (!verifyData.success) {
-                console.error('reCAPTCHA verification failed:', verifyData.message)
                 setSubmitStatus("error")
-                setIsSubmitting(false)
                 return
             }
 
-            console.log('reCAPTCHA verification successful, score:', verifyData.score)
-            const templateParams = {
-                user_name: form.current?.user_name.value,
-                user_email: form.current?.user_email.value,
-                subject: form.current?.subject.value,
-                message: form.current?.message.value,
-                grecaptcha_token: token,
-            }
-
+            const data = new FormData(form)
             await emailjs.send(
                 process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
                 process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-                templateParams,
+                {
+                    user_name: data.get("user_name"),
+                    user_email: data.get("user_email"),
+                    subject: data.get("subject"),
+                    message: data.get("message"),
+                    grecaptcha_token: token,
+                },
                 process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
             )
 
             setSubmitStatus("success")
-            form.current?.reset()
-        } catch (error) {
-            console.error('Form submission error:', error)
+            form.reset()
+        } catch {
             setSubmitStatus("error")
         } finally {
             setIsSubmitting(false)
         }
-    }
+    }, [])
 
     return (
         <>
@@ -89,12 +137,11 @@ export default function Contact() {
                 <Script
                     src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
                     strategy="afterInteractive"
-                    onLoad={() => console.log("reCAPTCHA loaded")}
                 />
             )}
 
             <LazyMotion features={domAnimation}>
-                <section id="contact" className="py-12 px-4 bg-slate-800 text-white pt-20 md:pt-32">
+                <section id="contact" aria-labelledby="contact-heading" className="py-12 px-4 bg-slate-800 text-white pt-20 md:pt-32">
                     <div className="max-w-4xl mx-auto">
                         <m.div
                             initial={{ opacity: 0, y: 60 }}
@@ -167,150 +214,40 @@ export default function Contact() {
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 sm:flex-row gap-4 pt-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                                         <Button
                                             asChild
                                             size="lg"
-                                            className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                                            className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl w-full"
                                         >
-                                            <a href="mailto:sidojain30705@gmail.com" target="_blank" rel="noopener noreferrer">
-                                                <Mail className="w-5 h-5 mr-2" />
+                                            <a href={`mailto:${EMAIL}`}>
+                                                <Mail className="w-5 h-5" aria-hidden="true" />
                                                 <span className="text-white font-semibold">Email Me</span>
                                             </a>
                                         </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://www.linkedin.com/in/sido-jain/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                                                <Image
-                                                    src="icons/linkedin.svg"
-                                                    alt="LinkedIn"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">LinkedIn</span>
-                                            </a>
-                                        </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://github.com/SidoJain" target="_blank" rel="noopener noreferrer">
-                                                <Image
-                                                    src="icons/github.svg"
-                                                    alt="GitHub"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">GitHub</span>
-                                            </a>
-                                        </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://leetcode.com/u/Jain_Sido/" target="_blank" className="flex items-center gap-2" rel="noopener noreferrer">
-                                                <Image
-                                                    src="icons/leetcode.svg"
-                                                    alt="Leetcode"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">LeetCode</span>
-                                            </a>
-                                        </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://codeforces.com/profile/SidoJain" target="_blank" rel="noopener noreferrer">
-                                                <Image
-                                                    src="icons/codeforces.svg"
-                                                    alt="Codeforces"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">Codeforces</span>
-                                            </a>
-                                        </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://www.geeksforgeeks.org/profile/sidojain" target="_blank" rel="noopener noreferrer">
-                                                <Image
-                                                    src="icons/geeksforgeeks.svg"
-                                                    alt="Geeksforgeeks"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">GeeksForGeeks</span>
-                                            </a>
-                                        </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://x.com/JainSido" target="_blank" rel="noopener noreferrer">
-                                                <Image
-                                                    src="icons/x.svg"
-                                                    alt="twitter"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">Twitter</span>
-                                            </a>
-                                        </Button>
-                                        <Button
-                                            asChild
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
-                                        >
-                                            <a href="https://instagram.com/sido_jain" target="_blank" rel="noopener noreferrer">
-                                                <Image
-                                                    src="icons/instagram.svg"
-                                                    alt="instagram"
-                                                    width="20"
-                                                    height="20"
-                                                    style={{ fill: '#181717' }}
-                                                    loading="lazy"
-                                                    unoptimized
-                                                />
-                                                <span className="text-black font-semibold">Instagram</span>
-                                            </a>
-                                        </Button>
+
+                                        {SOCIAL_LINKS.map(({ label, href, icon }) => (
+                                            <Button
+                                                key={label}
+                                                asChild
+                                                variant="outline"
+                                                size="lg"
+                                                className="border-slate-300 text-slate-700 bg-slate-300 hover:bg-white transition-all duration-300 shadow-sm"
+                                            >
+                                                <a href={href} target="_blank" rel="noopener noreferrer">
+                                                    <Image
+                                                        src={icon}
+                                                        alt=""
+                                                        aria-hidden="true"
+                                                        width={20}
+                                                        height={20}
+                                                        loading="lazy"
+                                                        unoptimized
+                                                    />
+                                                    <span className="text-black font-semibold">{label}</span>
+                                                </a>
+                                            </Button>
+                                        ))}
                                     </div>
                                 </div>
 
@@ -344,70 +281,39 @@ export default function Contact() {
                                     </CardHeader>
                                     <CardContent className="p-4 md:p-6">
                                         <form
-                                            ref={form}
                                             onSubmit={handleSubmit}
                                             onFocus={() => setLoadRecaptcha(true)}
+                                            aria-busy={isSubmitting}
                                             className="space-y-4 md:space-y-6"
                                         >
-                                            <div>
-                                                <label htmlFor="user_name" className="block text-sm font-medium text-slate-200 mb-2">
-                                                    <User className="w-4 h-4 inline mr-2" />
-                                                    Name
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    id="user_name"
-                                                    name="user_name"
-                                                    required
-                                                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base"
-                                                    placeholder="Your name"
-                                                />
-                                            </div>
-
-                                            <div>
-                                                <label htmlFor="user_email" className="block text-sm font-medium text-slate-200 mb-2">
-                                                    <Mail className="w-4 h-4 inline mr-2" />
-                                                    Email
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    id="user_email"
-                                                    name="user_email"
-                                                    required
-                                                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base"
-                                                    placeholder="your.name@email.com"
-                                                />
-                                            </div>
-
-                                            <div>
-                                                <label htmlFor="subject" className="block text-sm font-medium text-slate-200 mb-2">
-                                                    <BookOpenText className="w-4 h-4 inline mr-2" />
-                                                    Subject
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    id="subject"
-                                                    name="subject"
-                                                    required
-                                                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base"
-                                                    placeholder="What's this about?"
-                                                />
-                                            </div>
-
-                                            <div>
-                                                <label htmlFor="message" className="block text-sm font-medium text-slate-200 mb-2">
-                                                    <MessageSquare className="w-4 h-4 inline mr-2" />
-                                                    Message
-                                                </label>
-                                                <textarea
-                                                    id="message"
-                                                    name="message"
-                                                    required
-                                                    rows={5}
-                                                    className="w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none text-sm md:text-base"
-                                                    placeholder="Tell me about your project or just say hello!"
-                                                />
-                                            </div>
+                                            {FORM_FIELDS.map(({ id, label, icon: Icon, placeholder, type, autoComplete, rows }) => (
+                                                <div key={id}>
+                                                    <label htmlFor={id} className="block text-sm font-medium text-slate-200 mb-2">
+                                                        <Icon className="w-4 h-4 inline mr-2" aria-hidden="true" />
+                                                        {label}
+                                                    </label>
+                                                    {type === "textarea" ? (
+                                                        <textarea
+                                                            id={id}
+                                                            name={id}
+                                                            required
+                                                            rows={rows}
+                                                            placeholder={placeholder}
+                                                            className={`w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base resize-none`}
+                                                        />
+                                                    ) : (
+                                                        <input
+                                                            id={id}
+                                                            name={id}
+                                                            type={type}
+                                                            required
+                                                            autoComplete={autoComplete}
+                                                            placeholder={placeholder}
+                                                            className="w-full px-3 py-2 md:px-4 md:py-3 bg-slate-600 border border-slate-500 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors text-sm md:text-base"
+                                                        />
+                                                    )}
+                                                </div>
+                                            ))}
 
                                             <Button
                                                 type="submit"
@@ -427,32 +333,23 @@ export default function Contact() {
                                                 )}
                                             </Button>
 
-                                            {/* Status Messages */}
-                                            {submitStatus === "success" && (
-                                                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                                                    <p className="text-green-400 text-sm">Message sent successfully! I&apos;ll get back to you soon.</p>
-                                                </div>
-                                            )}
-
-                                            {submitStatus === "error" && (
-                                                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-                                                    <p className="text-red-400 text-sm">
-                                                        Failed to send message. Please try again or email me directly.
-                                                    </p>
-                                                </div>
-                                            )}
-
-                                            <p className="text-xs text-slate-400 text-center">
-                                                This form is protected by reCAPTCHA and the Google{" "}
-                                                <a href="https://policies.google.com/privacy" className="text-blue-400 hover:underline">
-                                                    Privacy Policy
-                                                </a>{" "}
-                                                and{" "}
-                                                <a href="https://policies.google.com/terms" className="text-blue-400 hover:underline">
-                                                    Terms of Service
-                                                </a>{" "}
-                                                apply.
-                                            </p>
+                                            <div aria-live="polite" className="empty:hidden">
+                                                {submitStatus === "success" && (
+                                                    <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                                                        <p className="text-green-400 text-sm">
+                                                            Message sent successfully! I&apos;ll get back to you soon.
+                                                        </p>
+                                                    </div>
+                                                )}
+                                                {submitStatus === "error" && (
+                                                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+                                                        <p className="text-red-400 text-sm">
+                                                            Failed to send message. Please try again or{" "}
+                                                            <a href={`mailto:${EMAIL}`} className="underline">email me directly</a>.
+                                                        </p>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </form>
                                     </CardContent>
                                 </Card>
