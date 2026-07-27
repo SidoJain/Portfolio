@@ -21,7 +21,7 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ["home", "about", "skills", "experience", "projects", "contact"]
+            const sections = ["home", "about", "projects", "experience", "skills", "contact"]
             const scrollPosition = window.scrollY + 100
 
             for (const section of sections) {

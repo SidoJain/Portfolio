@@ -10,21 +10,6 @@ export default function ResumePage() {
     const lastUpdated = "June 9, 2026"
     const [status, setStatus] = useState<"idle" | "done">("idle")
 
-    const handleDownload = async () => {
-        const link = document.createElement("a")
-        link.href = "/api/download-resume"
-        link.click()
-
-        try {
-            await fetch("/api/increment-resume-download", { method: "POST" })
-        } catch {
-            console.error("Failed to increment download counter")
-        }
-
-        setStatus("done")
-        setTimeout(() => setStatus("idle"), 2500)
-    }
-
     return (
         <LazyMotion features={domAnimation}>
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
@@ -54,45 +39,42 @@ export default function ResumePage() {
                             </m.div>
 
                             {/* Animated Download Button */}
-                            <m.button
+                            <m.a
+                                href="/resume/resume.pdf"
+                                download="Siddharth_Jain_Resume.pdf"
+                                onClick={() => {
+                                    setStatus("done")
+                                    setTimeout(() => setStatus("idle"), 2500)
+                                }}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
-                                onClick={handleDownload}
-                                disabled={status === "done"}
+                                className="px-3 py-2 text-sm font-medium"
                             >
-                                <div className="relative flex items-center justify-center w-[150px] h-10 rounded-md bg-blue-600 hover:bg-blue-700 text-white overflow-hidden">
-
+                                <div className="relative flex items-center justify-center w-[150px] h-10 rounded-md bg-blue-600 hover:bg-blue-700 text-white overflow-hidden transition-colors">
                                     <AnimatePresence mode="wait" initial={false}>
-                                        {status === "idle" && (
-                                            <m.div
-                                                key="idle"
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: -10 }}
-                                                className="flex items-center gap-2"
-                                            >
-                                                <Download className="w-4 h-4" />
-                                                Download PDF
-                                            </m.div>
-                                        )}
-
-                                        {status === "done" && (
-                                            <m.div
-                                                key="done"
-                                                initial={{ opacity: 0, scale: 0.6 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.6 }}
-                                                transition={{ type: "spring", stiffness: 200 }}
-                                                className="flex items-center gap-2 text-green-300"
-                                            >
-                                                <Check className="w-4 h-4" />
-                                                Done!
-                                            </m.div>
-                                        )}
+                                        <m.span
+                                            key={status}
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.2 }}
+                                            className={`flex items-center gap-2 ${status === "done" ? "text-green-300" : ""}`}
+                                        >
+                                            {status === "done" ? (
+                                                <>
+                                                    <Check className="w-4 h-4" aria-hidden="true" />
+                                                    Done!
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Download className="w-4 h-4" aria-hidden="true" />
+                                                    Download PDF
+                                                </>
+                                            )}
+                                        </m.span>
                                     </AnimatePresence>
                                 </div>
-                            </m.button>
+                            </m.a>
                         </div>
                     </div>
                 </m.header>
@@ -112,7 +94,7 @@ export default function ResumePage() {
                             <div className="overflow-x-auto h-full w-full">
                                 <div className="min-w-[320px] max-w-full h-full md:max-w-[100%] mx-auto scale-[0.35] sm:scale-[0.666] origin-top-left md:scale-100">
                                     <iframe
-                                        src="resume/resume.html"
+                                        src="/resume/resume.html"
                                         className="w-[calc(100%/0.35)] sm:w-[150%] md:w-full md:h-full h-[calc(100%/0.35)] sm:h-[150%] rounded-lg shadow-xl border border-slate-200"
                                         title="Resume"
                                         style={{ border: "none" }}
