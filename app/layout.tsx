@@ -4,6 +4,57 @@ import './globals.css'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 
+const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Siddharth Jain",
+    alternateName: "Sido Jain",
+    url: BASE_URL,
+    image: `${BASE_URL}/og-image.jpg`,
+    email: "mailto:sidojain30705@gmail.com",
+    jobTitle: "Software Developer",
+    description: "Full-stack developer, Blockchain explorer, AI enthusiast, and Lifelong Learner building practical, scalable products on the web.",
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "New Delhi",
+        addressRegion: "Delhi",
+        addressCountry: "IN",
+    },
+    alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "University School of Information, Communication and Technology (USICT), GGSIPU",
+        sameAs: "http://www.ipu.ac.in/usict/",
+    },
+    worksFor: {
+        "@type": "EmployeeRole",
+        roleName: "AI Engineering Intern",
+        startDate: "2026-06",
+        endDate: "2026-08",
+        worksFor: {
+            "@type": "Organization",
+            name: "Deloitte India",
+            sameAs: "https://www.deloitte.com/in/en.html",
+        },
+    },
+    knowsAbout: [
+        "Full Stack Development",
+        "Next.js",
+        "TypeScript",
+        "Systems Programming",
+        "Machine Learning",
+        "Blockchain",
+        "Solidity",
+    ],
+    sameAs: [
+        "https://github.com/SidoJain",
+        "https://www.linkedin.com/in/sido-jain/",
+        "https://x.com/JainSido",
+        "https://leetcode.com/u/Jain_Sido/",
+        "https://codeforces.com/profile/SidoJain",
+        "https://www.geeksforgeeks.org/profile/sidojain",
+    ],
+}
+
 export const metadata: Metadata = {
     metadataBase: new URL(BASE_URL),
     title: 'Siddharth Jain | Software Dev Portfolio',
@@ -48,6 +99,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+                />
                 {children}
                 <Analytics />
             </body>
