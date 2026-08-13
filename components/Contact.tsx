@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useCallback, useRef, useState } from "react"
+import { useCallback, useState } from "react"
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion"
 import Script from "next/script"
 import Image from "next/image"
@@ -10,7 +10,7 @@ import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-const EMAIL = "sidojain30705@gmail.com"
+const EMAIL = "sidojain01@gmail.com"
 
 const SOCIAL_LINKS = [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/sido-jain/", icon: "/icons/linkedin.svg" },
