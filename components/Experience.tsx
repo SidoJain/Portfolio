@@ -10,23 +10,23 @@ export default function Experience() {
 
     const experiences = [
         {
+            title: "Software Development Intern",
+            company: "Deloitte India",
+            location: "Gurgaon, India",
+            period: "Jun 2026 - Aug 2026",
+            description: "Developed an LLM-agnostic Text-to-SQL pipeline using LangGraph to convert natural language queries into executable SQL, supporting multiple SQL dialects and relational databases with sub-10 sec execution. Built a schema-aware semantic routing system using Neo4j Aura and FAISS embeddings to identify relevant tables, concepts, relationships, and business rules for SQL generation, significantly improving query generation over the previous vector-only architecture. Implemented PII masking, SQL AST validation, self correction, and automated evaluation using DeepEval and LangSmith, achieving 96% accuracy across test cases and improving reliability of generated queries.",
+            skills: ["Python", "RAG", "GenAI", "SQL", "Vector DB", "Graph DB", "PII", "LangGraph", "LangSmith", "DeepEval", "NLP", "Semantic Search", "FAISS", "Architecture Design"],
+            color: "emerald"
+        },
+        {
             title: "AI/ML, Blockchain & Full Stack Intern",
             company: "Vaultify.club",
             location: "Remote",
-            period: "June 2025 - Sept 2025",
-            description: "Built scalable web applications using Next.js and Node.js. Leveraged AWS Bedrock models, integrated with Lambda, WAF, Textract, S3 and Kendra, for scalable Gen AI apps. Designed and implemented smart contracts using Solidity on the Ethereum Blockchain.",
+            period: "Jun 2025 - Sept 2025",
+            description: "Developed and maintained a financial calculator platform using Next.js, implementing 40+ financial calculators for loans, retirement planning, and other financial use cases with 100% calculation accuracy. Integrated AWS Bedrock models (Claude, Llama 2, Titan) with Lambda, WAF, Textract, S3, and Kendra to build scalable Generative AI applications, supporting 1k+ requests/day. Designed and implemented smart contracts using Solidity on the Ethereum Blockchain, optimizing contract execution to reduce gas consumption by 12% and improve transaction efficiency.",
             skills: ["TypeScript", "Python", "Solidity", "Next.js", "AWS Bedrock", "AWS Lambda", "AWS WAF", "AWS Textract", "AWS S3", "AWS Kendra", "Ethereum"],
             color: "blue"
-        },
-        {
-            title: "Open Source Contributor",
-            company: "Self Employed",
-            location: "Remote",
-            period: "2024 – Present",
-            description: "Contribute code, documentation, and tests to multiple open-source projects, focusing on performance, reliability, and developer experience. Engage with maintainers and the community via discussions, issues, and PRs; mentor new contributors and improve contributor onboarding.",
-            skills: ["C", "JavaScript", "TypeScript", "Python", "SQL", "MongoDB", "React", "Next.js", "Express.js", "Docker", "CI/CD"],
-            color: "purple"
-        },
+        }
     ]
 
     return (
