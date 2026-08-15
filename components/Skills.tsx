@@ -1,7 +1,7 @@
 "use client"
 
 import { LazyMotion, domAnimation, m } from "framer-motion"
-import { CodeXml, Server, Brain, Blocks, Cloud, Wrench } from "lucide-react"
+import { CodeXml, Server, Brain, Database, Cloud, Wrench } from "lucide-react"
 import { useState } from "react"
 import { CTA } from "@/components/cards/CTA"
 import { SkillCard } from "@/components/cards/SkillCard"
@@ -74,46 +74,46 @@ const colorMap: Record<string, ColorProps> = {
 }
 
 const skills = {
-    frontend: {
-        title: "Frontend",
+    webdev: {
+        title: "Web Development",
         icon: CodeXml,
         color: "blue",
-        skills: ["HTML", "CSS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion", "Axios"],
+        skills: ["HTML", "CSS", "React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Axios", "Node.js", "Express.js", "Flask", "FastAPI", "WebSockets", "JWT", "Zustand"],
         gradient: "from-blue-500 to-cyan-500",
     },
-    backend: {
-        title: "Backend",
+    language: {
+        title: "Languages",
         icon: Server,
         color: "emerald",
-        skills: ["Node.js", "Express.js", "Flask", "FastAPI", "WebSocket", "MongoDB", "Redis", "PostgreSQL", "MySQL", "Supabase", "SQLite"],
+        skills: ["Python", "JavaScript", "TypeScript", "C", "C++", "Java", "C#", "Solidity", "Go"],
         gradient: "from-emerald-500 to-teal-500",
     },
-    ml: {
-        title: "Machine Learning",
+    aiml: {
+        title: "AI and ML",
         icon: Brain,
         color: "purple",
-        skills: ["Generative AI", "Neural Networks", "Scikit-Learn", "Pandas", "NLTK", "TensorFlow", "Ollama"],
+        skills: ["Agentic AI", "Gen AI", "RAG", "FAISS", "Semantic Search", "LangGraph", "LangChain", "LangSmith", "DeepEval", "ML", "DL", "NLP", "Guardrails"],
         gradient: "from-purple-500 to-pink-500",
     },
-    blockchain: {
-        title: "Blockchain",
-        icon: Blocks,
+    database: {
+        title: "Databases",
+        icon: Database,
         color: "orange",
-        skills: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "Hardhat"],
+        skills: ["MongoDB", "Redis", "PostgreSQL", "MySQL", "Supabase", "SQLite", "VectorDB", "Neo4j Aura", "DynamoDB"],
         gradient: "from-orange-500 to-red-500",
     },
     devops: {
         title: "DevOps",
         icon: Cloud,
         color: "pink",
-        skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD Pipelines", "SSH"],
+        skills: ["Docker", "AWS", "Vercel", "Render", "Github Actions", "CI/CD", "CDN", "Load Balancers", "Microservices"],
         gradient: "from-pink-500 to-rose-500",
     },
     tools: {
         title: "Tools",
         icon: Wrench,
         color: "cyan",
-        skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux", "LaTeX"],
+        skills: ["Figma", "Vite", "Postman", "Git", "WSL2", "Linux", "LaTeX", "SSH", "Tree Sitter"],
         gradient: "from-cyan-500 to-blue-500",
     },
 }
