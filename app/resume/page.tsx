@@ -4,7 +4,7 @@ export async function generateMetadata() {
     return {
         title: `Siddharth Jain | Resume`,
         alternates: {
-            canonical: "https://www.sidojain.dev/resume",
+            canonical: "https://sidojain.vercel.app/resume",
         },
     }
 }
