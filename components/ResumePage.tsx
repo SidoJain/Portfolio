@@ -7,7 +7,7 @@ import { Download, Check } from "lucide-react"
 import Link from "next/link"
 
 export default function ResumePage() {
-    const lastUpdated = "October 30, 2026"
+    const lastUpdated = "November 24, 2026"
     const [status, setStatus] = useState<"idle" | "done">("idle")
 
     return (
